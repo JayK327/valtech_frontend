@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Name</title>
+    <script src="https://kit.fontawesome.com/c28701b759.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1690983322857-0811d47fedfc?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1lbnUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 40px 60px;
+            margin: 50px auto;
+            border-radius: 25px;
+            max-width: 1200px;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.1);
+            color: white;
+            position: relative;
+        }
+        #dish-image{
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            max-width: 400px;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        .like-button {
+            font-size: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: none;
+            color: red;
+        }
+        header {
+            padding: 20px 0;
+        }
+
+        footer {
+            padding: 20px;
+            border-top: 2px solid #fff;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin: 0;
+            text-align: center;
+            color: #472D2D;
+        }
+        main{
+            padding: 20px 0;
+        }
+        .container{
+            width: 100%;
+            max-width: 1100px;
+            background-color: #D8D8D8;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+        #hr2{
+          border: none;
+            height: 2px;
+            background: repeating-linear-gradient(
+                to right,
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 20px auto;
+            margin-bottom: 20px;
+            width: 80%;
+            border-radius: 10px;
+        }
+        
+        hr{
+            border: none;
+            height: 2px;
+            background: repeating-linear-gradient(
+                to right,
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 40px auto;
+            margin-bottom: 20px;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: black;
+        }
+
+        a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: 400;
+        color: #fff;
+        background-color: #e63946;
+        border-radius: 8px;
+        transition: background 0.3s ease-in-out;
+      }
+        a:hover {
+        background-color: #d62828;
+      }
+
+      #btnlike{
+        font-size: 30px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: rgb(4, 4, 4);
+        transition: color 0.3s;
+      }
+      #btnlike.liked{
+        color: red;
+      }
+      
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+    <hr />
+    <header style="text-align: center">
+        <h1 id="dish-name"></h1>
+      </header>
+      <hr id="hr2"/>
+      <main style="text-align: center">
+        <div>
+          <img id="dish-image" alt="Dish Image" />
+          <h3 id="dish-name">
+            <button id="btnlike" class="fa-regular fa-heart"></button>
+          </h3>
+  
+          <p id="price"><strong>PRICE:</strong> ₹ <span id="dish-price"></span></p>
+          <p><strong>DESCRIPTION:</strong> <span id="dish-desc"></span></p>
+          <p><strong>INGREDIENTS:</strong> <span id="dish-ingredients"></span></p>
+          <p><strong>SERVINGS:</strong> <span id="dish-servings"></span></p>
+          <p>
+            <strong>NUTRITIONAL_VALUE:</strong>
+            <span id="dish-nutri-value"></span>
+          </p>
+          <p>
+            <strong>PREPARATION_TIME(In mins):</strong>
+            <span id="dish-time"></span>
+          </p>
+          <br /><br />
+          <a href="index.html">Back to Menu</a>
+        </div>
+      </main>
+      <footer>
+        <p>© 2025 Bhukkad Junction. All Rights Reserved.</p>
+      </footer>
+    </div>
+      <script>
+        const dishes = [
+          {
+            id: 1,
+            name: "Hakka Noodles",
+            image: "images/veg-hakka-noodles-recipe-with-step-by-step-instructions.jpg",    
+            description:
+              "A vibrant and flavorful Indo-Chinese dish, Hakka Noodles are made with stir-fried noodles, fresh vegetables, and aromatic spices like garlic, ginger, and green chilies. Tossed in soy sauce and vinegar, these noodles are the perfect combination of savory, spicy, and tangy flavors.",
+            price: 449,
+            ingredients: [
+              "vegetables",
+              "sunflower oil",
+              "soya sauce",
+              "vinegar",
+              "garlic",
+              "ginger",
+              "green chillies",
+            ],
+            serves: 2,
+            nutritional_value: 372,
+            preparation_time: 35,
+          },
+          {
+            id: 2,
+            name: "Chhole Bhature",
+            image: "images/hq720.jpg",
+            description:
+              "A popular dish from Amritsar, Chhole Bhature consists of spiced chickpeas (chhole) cooked with aromatic spices like cumin, coriander, and garam masala. Served with deep-fried, fluffy bhature (leavened bread), it is a hearty, flavorful meal that is both comforting and satisfying.",
+            price: 215.4,
+            ingredients: [
+              "chickpeas",
+              "onions",
+              "tomatoes",
+              "spices like cumin",
+              "coriander",
+              "turmeric",
+              "chili powder",
+              "garam masala",
+            ],
+            serves: 2,
+            nutritional_value: 426,
+            preparation_time: 75,
+          },
+          {
+            id: 3,
+            name: "Sizzling Mexicano",
+            image: "images/typical-sizzler-platter-served-piping-260nw-1444463795.jpg.webp",
+            description:
+              "Sizzling Mexicano is a vibrant dish combining Mexican cutlets, paneer skewers, Mexican rice, assorted vegetables, and crispy French fries. Served sizzling hot with Mexican hot sauce, sour cream, and tortilla chips, this dish is a fiesta of flavors and textures.",
+            price: 614,
+            ingredients: [
+              "Mexican Cutlets",
+              "Paneer Skewer",
+              "Mexican Rice",
+              "Assorted Veg",
+              "French Fries",
+              "Mexican Hot Sauce",
+              "Sour Cream",
+              "Tortilla Chips",
+            ],
+            serves: 3,
+            nutritional_value: 852,
+            preparation_time: 50,
+          },
+          {
+            id: 4,
+            name: "Paneer Butter Masala",
+            image: "images/360_F_967723427_GwsU6brVNMQfMAZQvm99tGD9vsYt1C95.jpg",
+            description:
+              "A rich and creamy North Indian dish, Paneer Butter Masala features succulent cubes of paneer (Indian cottage cheese) simmered in a luscious tomato-based gravy with butter, cream, and a blend of fragrant spices such as garam masala and cumin. This dish is indulgent and perfect when paired with naan or rice.",
+            price: 220,
+            ingredients: [
+              "Paneer",
+              "Tomatoes",
+              "Onions",
+              "Cream",
+              "Butter",
+              "Garam Masala",
+            ],
+            serves: 2,
+            nutritional_value: 423,
+            preparation_time: 35,
+          },
+          {
+            id: 5,
+            name: "Chilli Manchurian Garlic Wrap",
+            image: "images/images-3.jpeg",
+            description:
+              "A fusion dish, the Chili Manchurian Garlic Wrap brings together crunchy vegetables, fried noodles, and a tangy garlic sauce, all wrapped in a flaky paratha. Topped with mayo and roasted peanuts, this is a delicious and crispy treat that’s full of flavor and texture.",
+            price: 199,
+            ingredients: [
+              "Garlic Sauce",
+              "Sliced Vegetables",
+              "fried Noodles",
+              "Mayo",
+              "Roasted Peanuts",
+              "Cheese",
+              "Flaky paratha",
+            ],
+            serves: 1,
+            nutritional_value: 45,
+            preparation_time: 35,
+          },
+          {
+            id: 6,
+            name: "Arrabiata Pasta",
+            image: "images/images-4.jpeg",
+            description:
+              "Arrabiata Pasta is a classic Italian dish made with penne pasta tossed in a spicy tomato-based sauce. The sauce is made with olive oil, garlic, black olives, and red chili flakes, giving it a bold, fiery flavor. Topped with cheese, it’s a comforting, flavorful dish.",
+            price: 350,
+            ingredients: [
+              "Olive Oil",
+              "Penne Pasta",
+              "Black Olives",
+              "Cheese",
+              "Other Veggies",
+              "Red Sauce",
+            ],
+            serves: 1,
+            nutritional_value: 651,
+            preparation_time: 50,
+          },
+          {
+            id: 7,
+            name: "Gotala Dosa",
+            image: "images/images-5.jpeg",
+            description:
+              "Gotala Dosa is a crispy South Indian dosa stuffed with a flavorful mix of mashed potatoes, peas, onions, and a special blend of spices. The dish is enriched with cheese and paneer, adding a rich and creamy texture to the traditional dosa.",
+            price: 390,
+            ingredients: [
+              "Boiled Potatoes",
+              "Peas",
+              "Onions",
+              "Mix of Spices",
+              "Cheese",
+              "Paneer",
+            ],
+            serves: 1,
+            nutritional_value: 108,
+            preparation_time: 50,
+          },
+          {
+            id: 8,
+            name: "Khaman Dhokla",
+            image: "images/vati-dal-khaman-dhokla-recipe.jpg",
+            description:
+              "Khaman Dhokla is a fluffy, steamed snack made from chickpea flour (besan) and semolina. It is lightly spiced with turmeric, ginger-green chili paste, and mustard seeds, and is garnished with coriander leaves and sesame seeds, making it a flavorful and healthy snack.",
+            price: 95,
+            ingredients: [
+              "Besan",
+              "Semolina",
+              "Lemon Juice",
+              "Sugar",
+              "Eno Fruit Salt",
+              "Ginger Green Chilli Paste",
+              "Oil",
+              "Grated Coconut",
+              "Green Chillies",
+              "Sesame Seeds",
+            ],
+            serves: 2,
+            nutritional_value: 60,
+            preparation_time: 50,
+          },
+          {
+            id: 9,
+            name: "Dal Beti Meal",
+            image: "images/traditional-rajasthani-meal-dal-bati-churma-meal-fit-kings-brass-plate-following-items-served-lentil-stuffed-wheat-158606477.jpg.webp",
+            description:
+              "Dal Beti Meal is a wholesome, comforting meal consisting of a mix of dals (lentils), served with a crispy, golden 'beti' (fried bread). The dal is rich in flavor from garlic, spices, and ghee, making it a satisfying and nutritious dish.",
+            price: 143.9,
+            ingredients: [
+              "Chana Dal",
+              "Toor Dal",
+              "Moong Dal",
+              "Urad Dal",
+              "Garlic (finely chopped)",
+              "Coriander Powder",
+              "Garam Masala Powder",
+              "Rava",
+              "Besan Flour",
+              "Milk",
+              "Ajwain",
+            ],
+            serves: 1,
+            nutritional_value: 301,
+            preparation_time: 40,
+          },
+          {
+            id: 10,
+            name: "Amritsari Paratha",
+            image: "images/images-6.jpeg",
+            description:
+              "Amritsari Paratha is a traditional Punjabi stuffed flatbread made with a mixture of spices like red chili, amchoor (dry mango powder), and kasoori methi (dried fenugreek leaves). The paratha is crispy on the outside and soft inside, perfect to pair with curry or yogurt.",
+            price: 120,
+            ingredients: [
+              "Red Chilli",
+              "Amchoor",
+              "Anardana",
+              "Cumin",
+              "Kasoori Methi",
+              "Salt",
+            ],
+            serves: 2,
+            nutritional_value: 270,
+            preparation_time: 55,
+          },
+        ];
+  
+        const urlParams = new URLSearchParams(window.location.search);
+        const dishId = parseInt(urlParams.get("id"));
+  
+        const dish = dishes.find((d) => d.id === dishId);
+  
+        if (dish) {
+          document.getElementById("dish-name").textContent = dish.name;
+          document.getElementById('dish-image').src = dish.image;
+          document.getElementById("dish-name").textContent = dish.name;
+          document.getElementById("dish-price").textContent = dish.price;
+          document.getElementById("dish-desc").textContent = dish.description;
+          document.getElementById("dish-ingredients").textContent = dish.ingredients;
+          document.getElementById("dish-servings").textContent = dish.serves;
+          document.getElementById("dish-nutri-value").textContent = dish.nutritional_value;
+          document.getElementById("dish-time").textContent = dish.preparation_time;
+        } else {
+          document.getElementById("dish-name").textContent = "Dish Not Found!";
+        }
+  
+        const likeBtn = document.getElementById("btnlike");
+  
+        function updateButton() {
+          const liked = JSON.parse(localStorage.getItem("likedDishes"))|| [];
+          if(!liked.includes(dishId)){
+            likeBtn.classList.remove("liked","fa-solid");
+            likeBtn.classList.add("fa-regular");
+          }else{
+            likeBtn.classList.add("liked","fa-solid");
+            likeBtn.classList.remove("fa-regular");
+          }
+        }
+  
+        likeBtn.addEventListener("click", () => {
+          let liked = JSON.parse(localStorage.getItem("likedDishes")) || [];
+          if(!liked.includes(dishId)){
+            liked.push(dishId);
+          }else{
+            liked = liked.filter(id => id !== dishId);
+          }
+          localStorage.setItem("likedDishes",JSON.stringify(liked));
+          // alert('${dish.name} liked!');
+          updateButton();
+        });
+        updateButton();
+      </script>
+
+</body>
+
+</html>

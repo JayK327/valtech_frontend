@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration Form</title>
+    <script>
+        function nameFormatter(val) {
+            var name = document.getElementById(val);
+            var formattedName = name.value.charAt(0).toUpperCase() + name.value.slice(1).toLowerCase();
+            document.getElementById(val).value = formattedName;
+        }
+        function formatBeforeSubmit() {
+            nameFormatter('firstname');
+            nameFormatter('lastname');
+        }
+        function checkit(elm){
+            if(elm.value < 18){
+                elm.setCustomValidity("You are too young to join us");
+            }else if(elm.value > 60){
+                elm.setCustomValidity("You have to retire now");
+            }else{
+                elm.setCustomValidity("");
+            }
+        }
+        window.onload = function() {
+            let currentDate = new Date();
+            let year = currentDate.getFullYear();
+            let month = String(currentDate.getMonth() + 1).padStart(2, '0');  
+            let day = String(currentDate.getDate()).padStart(2, '0');          
+
+            let formattedDate = year + '-' + month + '-' + day;
+            document.getElementById("today-date").setAttribute("min", formattedDate);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Employee Registration Form</h1>
+    <form action="#" method="get" onsubmit="formatBeforeSubmit()">
+        <table>
+            <tbody>
+                <tr>
+                    <td>First Name</td>
+                    <td><input required id="firstname" name="firstname" type="text" pattern="[A-Za-z]+"
+                            placeholder="Enter your first name" title="Only alphabets allowed." style="width: 350px;"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input required id="lastname" name="lastname" type="text" pattern="[A-Za-z]+"
+                            placeholder="Enter your last name" title="Only alphabets allowed." style="width: 350px;"></td>
+                </tr>
+                <tr>
+                    <td>eMail</td>
+                    <td><input required name="usermail" type="email" placeholder="abc@gmail.com"
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{3}$"
+                            title="Invalid email. Please provide email in correct format" style="width: 350px;"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td><input required list="genderValue" name="gender" title="Please select your gender."
+                            placeholder="Please select your gender" autocomplete="off" style="width: 350px;">
+                        <datalist id="genderValue">
+                            <option value="Male"></option>
+                            <option value="Female"></option>
+                            <option value="Other"></option>
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input type="number" name="age" required placeholder="Enter your age" min="18" max="60" oninput="checkit(this)" style="width: 350px;"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><input required list="cityList" name="city" title="Please select your city."
+                            placeholder="Please select your city"  style="width: 350px;">
+                        <datalist id="cityList">
+                            <option value="Ahmedabad"></option>
+                            <option value="Bengalore"></option>
+                            <option value="Pune"></option>
+                            <option value="Gurgaon"></option>
+                            <option value="Other"></option>
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Upload Resume</td>
+                    <td><input type="file" name="resume" required accept=".doc,.docx,.pdf" style="width: 350px;"></td>
+                </tr>
+                <tr>
+                    <td>Position Applied</td>
+                    <td>
+                        <select  required name="positions" multiple style="width: 360px;">
+                            <option value="Web Developer">Web Developer</option>
+                            <option value="Data Scientist">Data Scientist</option>
+                            <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                            <option value="Android Developer">Android Developer</option>
+                            <option value="Game Developer">Game Developer</option>
+                            <option value="Analyst">Analyst</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tentative date to join</td>
+                    <td><input type="date" id="today-date" name="date-input"></td>
+                </tr>
+        
+                <tr>
+                    <td colspan="2">
+                        <button style="width: 500px;">Submit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

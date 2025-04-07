@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Name</title>
+    <script src="https://kit.fontawesome.com/c28701b759.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1690983322857-0811d47fedfc?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1lbnUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 40px 60px;
+            margin: 50px auto;
+            border-radius: 25px;
+            max-width: 1200px;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.1);
+            color: white;
+            position: relative;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .menu-card {
+            text-align: left;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            color: #472D2D;
+        }
+
+        .menu-card img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            max-width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .menu-card h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;  /* space around,space evenly */
+            align-items: center;
+        }
+
+        .price {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .like-button {
+            font-size: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: none;
+            color: red;
+        }
+        header {
+            padding: 20px 0;
+        }
+
+        footer {
+            padding: 20px;
+            border-top: 2px solid #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin: 0;
+            text-align: center;
+            color: #472D2D;
+        }
+        #unique-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 10px;
+            color: #472D2D;
+        }
+        main{
+            padding: 20px 0;
+        }
+       
+        .container{
+            width: 100%;
+            max-width: 1200px;
+            background-color: #D8D8D8;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+        hr{
+            border: none;
+            height: 2px;
+            background: repeating-linear-gradient(
+                to right,
+                rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+    </style>
+    
+    <script>
+        window.onload = function () {
+            const liked = JSON.parse(localStorage.getItem("likedDishes")) || [];
+            liked.forEach(id => {
+                const btn = document.getElementById("like-"+id);
+                if(btn){
+                    btn.style.display = "inline";
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+    <hr />
+    
+    <header class="header-style">
+        <h1>Bhukkad Junction</h1>
+        <p id="unique-text">We take spices seriously...But not ourselves!!!</p>
+    </header>
+    <hr />
+    <main>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <img src="images/veg-hakka-noodles-recipe-with-step-by-step-instructions.jpg" alt="Hakka Noodles">
+            <a href="child2.html?id=1"><h3>Hakka Noodles </a> <i class="fa-solid fa-heart like-button" id="like-1"></i><span class="price">₹449</span></h3>
+            <p>A vibrant and flavorful Indo-Chinese dish...</p>
+           
+          </div>
+          <div class="menu-card">
+            <img src="images/hq720.jpg" alt="Chhole Bhature">
+            <a href="child2.html?id=2"><h3>Chhole Bhature </a><i class="fa-solid fa-heart like-button" id="like-2"></i><span class="price">₹215.40</span></h3>
+            <p>A popular dish from Amritsar, Chhole Bhature consists of spiced chickpeas...</p>
+            
+          </div>
+          <div class="menu-card">
+            <img src="images/typical-sizzler-platter-served-piping-260nw-1444463795.jpg.webp" alt="Sizzling Mexicano">
+            <a href="child2.html?id=3"><h3>Sizzling Mexicano </a><i class="fa-solid fa-heart like-button" id="like-3"></i><span class="price">₹614</span></h3>
+            <p>Sizzling Mexicano is a vibrant dish combining Mexican cutlets, paneer skewers, Mexican rice...</p>
+            
+          </div>
+          <div class="menu-card">
+            <img src="images/360_F_967723427_GwsU6brVNMQfMAZQvm99tGD9vsYt1C95.jpg" alt="Paneer Butter Masala">
+            <a href="child2.html?id=4"><h3>Paneer Butter Masala </a> <i class="fa-solid fa-heart like-button" id="like-4"></i><span class="price">₹220</span></h3>
+            <p>A rich and creamy North Indian dish, Paneer Butter Masala features succulent cubes of paneer...</p>
+           
+          </div>
+          <div class="menu-card">
+            <img src="images/images-3.jpeg" alt="Chilli Manchurian Garlic Wrap">
+            <a href="child2.html?id=5"><h3>Chilli Manchurian Wrap </a> <i class="fa-solid fa-heart like-button" id="like-5"></i><span class="price">₹199</span></h3>
+            <p>A fusion dish, the Chili Manchurian Garlic Wrap brings together crunchy vegetables, fried noodles...</p>
+           
+          </div>
+          <div class="menu-card">
+            <img src="images/images-4.jpeg" alt="Arrabiata Pasta">
+            <a href="child2.html?id=6"><h3>Arrabiata Pasta </a><i class="fa-solid fa-heart like-button" id="like-6"></i><span class="price">₹350</span></h3>
+            <p>Arrabiata Pasta is a classic Italian dish made with penne pasta tossed in a spicy tomato-based sauce...</p>
+            
+          </div>
+          <div class="menu-card">
+            <img src="images/images-5.jpeg" alt="Gotala Dosa">
+            <a href="child2.html?id=7"><h3>Gotala Dosa </a><i class="fa-solid fa-heart like-button" id="like-7"></i><span class="price">₹390</span></h3>
+            <p>Gotala Dosa is a crispy South Indian dosa stuffed with a flavorful mix of mashed potatoes, peas...</p>
+            
+          </div>
+          <div class="menu-card">
+            <img src="images/vati-dal-khaman-dhokla-recipe.jpg" alt="Khaman Dhokla">
+            <a href="child2.html?id=8"><h3>Khaman Dhokla </a><i class="fa-solid fa-heart like-button" id="like-8"></i><span class="price">₹95</span></h3>
+            <p>Khaman Dhokla is a fluffy, steamed snack made from chickpea flour (besan) and semolina...</p>
+            
+          </div>
+          <div class="menu-card">
+            <img src="images/traditional-rajasthani-meal-dal-bati-churma-meal-fit-kings-brass-plate-following-items-served-lentil-stuffed-wheat-158606477.jpg.webp" alt="Dal Bati Meal">
+            <a href="child2.html?id=9"><h3>Dal Bati Meal </a> <i class="fa-solid fa-heart like-button" id="like-9"></i><span class="price">₹220</span></h3>
+            <p>Dal Bati Meal is a wholesome, comforting meal consisting of a mix of dals (lentils), served with a crispy...</p>
+           
+          </div>
+          <div id="lastDiv" class="menu-card">
+            <img src="images/images-6.jpeg" alt="Amritsari Paratha">
+            <a href="child2.html?id=10"><h3>Amritsari Paratha </a><i class="fa-solid fa-heart like-button" id="like-10"></i><span class="price">₹120</span></h3>
+            <p>Amritsari Paratha is a traditional Punjabi stuffed flatbread made with a mixture of spices like red chili...</p>
+            
+          </div>
+        </div>
+      </main>
+</div>
+</body>
+
+</html>

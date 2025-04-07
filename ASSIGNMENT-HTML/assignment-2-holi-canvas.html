@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holi Greeting Card</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fff3e0;
+      overflow: hidden; 
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .message {
+      position: absolute;
+      font-family: 'Georgia', serif;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ff3c6f;
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 2px 2px #ffd700;
+    }
+    .message1 {
+      position: absolute;
+      font-family: 'Arial', sans-serif;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ff3c6f;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .logo {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      width: 100px;
+      opacity: 0.9;
+      z-index: 10;
+    }
+
+    .social-links {
+      position: absolute;
+      bottom: 20px; 
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 24px;
+      height: 24px;
+    }
+
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div class="message">Happy Holi!</div>
+  <div class="message1">May Your Life Be Filled With Joy And Colors</div>
+
+  <a href="https://valtech-mobility.de/en/">
+    <img src="images/logo.jpg" alt="Valtech Mobility Logo" class="logo">
+  </a>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/valtech_mobility/" target="_blank">
+      <img src="images/instagram.svg" alt="Instagram" />
+    </a>
+    <a href="https://www.linkedin.com/company/valtech-mobility-gmbh/" target="_blank">
+      <img src="images/linkedin.svg" alt="LinkedIn" />
+    </a>
+    
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    function drawSplash(x, y, color) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      for (let i = 0; i < 8; i++) {
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = Math.random() * 30 + 20;
+        const dx = x + Math.cos(angle) * radius;
+        const dy = y + Math.sin(angle) * radius;
+        ctx.lineTo(dx, dy);
+      }
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    const colors = [
+      "#f8bbd0", "#c5cae9", "#c8e6c9", "#fff9c4", "#ffccbc", 
+      "#e1bee7", "#b2ebf2", "#d1c4e9", "#ffe0b2", "#f0f4c3", 
+      "#fce4ec", "#e0f2f1", "#f3e5f5", "#dcedc8", "#f8f9fa"
+    ];
+
+    for (let i = 0; i < 500; i++) {
+      const x = Math.random() * canvas.width; // Cover full canvas width
+      const y = Math.random() * canvas.height; // Cover full canvas height
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      drawSplash(x, y, color);
+    }
+
+  </script>
+</body>
+</html>

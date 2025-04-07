@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .blue {
+            color: blue;
+        }
+
+        [contenteditable] {
+            min-height: 3rem;
+            border: solid 1px;
+            padding: 0.5rem;
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Copy It</h2>
+    <p class="instructions">
+        Copy all the text in the block below and paste it into each of the
+        contenteditable blocks to compare the results.
+    </p>
+    <section class="copying">
+        <div class="copy">
+            <p>
+                This is a paragraph containing <strong>Bold</strong>, <em>Italic</em>,
+                and <span class="blue">blue</span> text
+            </p>
+        </div>
+    </section>
+
+    <h2>Pasting areas</h2>
+    <section class="pasting">
+        <div class="wrapper">
+            <h3>contenteditable="true"</h3>
+            <div contenteditable="true"></div>
+        </div>
+        <div class="wrapper">
+            <h3>contenteditable="plaintext-only"</h3>
+            <div contenteditable="plaintext-only"></div>
+        </div>
+    </section>
+    <p>-------------------------------------------------------------------------------------------</p>
+    <p contenteditable="true">Editable paragraph</p>
+</body>
+
+</html>

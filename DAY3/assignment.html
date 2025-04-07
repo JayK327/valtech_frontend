@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Current Date as Min</title>
+    <script>
+        window.onload = function() {
+            let currentDate = new Date();
+            let year = currentDate.getFullYear();
+            let month = String(currentDate.getMonth() + 1).padStart(2, '0');  
+            let day = String(currentDate.getDate()).padStart(2, '0');          
+
+            let formattedDate = year + '-' + month + '-' + day;
+            document.getElementById("date-input").setAttribute("min", formattedDate);
+        };
+    </script>
+</head>
+<body>
+    <h1>Select a Date</h1>
+    <form>
+        <label for="date-input">Choose a date:</label>
+        <input type="date" id="date-input" name="date-input">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio API</title>
+    <script>
+        var aud, timer ;
+        window.onload = function(){
+           aud = document.getElementsByTagName("audio")[0];
+           console.log(vid.canPlayType("audio/mp3"));
+        };
+        function playaud(){
+            aud.play();
+            if(timer === undefined){
+                timer = setInterval(function(){
+                    document.getElementById("log").value = aud.currentTime;
+                    console.log(Math.random());
+                }, 1)
+             };
+        }
+        function pauseaud(){
+            aud.pause();
+            clearInterval(timer);
+        };
+        function stopaud(){
+            aud.pause();
+            aud.currentTime = 0;
+            document.getElementById("log").value = aud.currentTime;
+            clearInterval(timer);
+        };
+        function setVolume(){
+            aud = document.getElementsByTagName("audio")[0];
+            aud.volume=document.getElementById("volumeR").value;
+        }
+    </script>
+</head>
+<body>
+    <audio controls src="medias/enlivening.mp3"></audio>
+    <button onclick="playaud()">Play</button>
+    <button onclick="stopaud()">Stop</button>
+    <button onclick="pauseaud()">Pause</button>
+    <div class="slides">
+        <div class="slider-cont">
+        <input type="range" onchange="setVolume()" id='volumeR' min=0 max=1 step=0.01 value='0.30'>
+         </div>
+     </div>
+</body>
+</html>
