@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stats Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      
+    }
+/* PAGE 1 AND 2 CSS INDREJEET */
+span{
+    color: orangered;
+    text-decoration: underline;
+}
+
+.header{
+    background-color: orangered;
+    margin: 0px 70px 0px 70px;
+    height: 160px;
+    display: block;
+}
+
+.head{
+    height: 50%;
+    background-color: #ffffff;
+    display: flex;
+}
+
+.head img{
+    width:180px;
+}
+
+.contact{
+    margin: 10px 0px 0px 80px;
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    font-size: 15px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.contact img{
+    width: 50px;
+    height: 50px;
+}
+
+.buttons{
+    margin: 20px 0px 0px 150px;
+    
+}
+
+.signin{
+    font-size: 20px;
+    border-radius: 3px;
+    border: 0.5px solid gray;
+    padding: 10px;
+    width: 130px;
+    background-color: white;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 100;
+}
+
+.car{
+    font-size: 20px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 130px;
+    background-color: black;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 100;
+}
+
+.nav{
+    height: 50%;
+    /* background-color: #70d28e; */
+}
+
+.nav ul{
+    display: flex;
+    gap: 50px;
+    color: white;
+    padding: 15px 0px 0px 40px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 18px;
+}
+
+.icons{
+    display: flex;
+    margin-left: 1350px;
+    margin-top: -43px;
+    gap: 20px;
+}
+
+.icons span{
+    font-size: 30px;
+    padding-top: -200px;
+    text-decoration: none;
+    color: white;
+}
+.icons img{
+    width: 25px;
+    height: 25px;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 0px 70px 0px 70px;
+    position: relative;
+}
+.home{
+    /* width: 1190px; */
+    width: 50%;
+    height: 900px;
+    background-color: rgb(221, 140, 140);
+    
+}
+.home img{
+    width: 1800px;
+    height: 900px;
+    max-width: 100%;
+    z-index: 2;
+}
+.text{
+    /* width: 1190px; */
+    width: 50%;
+    height: 900px;
+    background-color: rgb(255, 255, 255);
+}
+.main {
+    padding: 220px 0px 0px 60px;
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+}
+.para{
+    font-size: 20px; 
+    color: gray; 
+    font-weight: 100; 
+    justify-content: center; 
+    text-align: top;  
+    margin-top: -80px;
+    margin-left: 60px;
+}
+.text button{
+    background-color: orangered;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 15px;
+    margin-left: 60px;
+    color: white;
+    border: none;
+    margin-top: -10px;
+    text-decoration: none;
+}
+.icon{
+    background-color: orangered;
+    color: white;
+    display: inline;
+    position: absolute;
+    margin: 5px;
+    z-index: 10;
+    margin-left: -786px;
+    margin-top: 830px;
+    height: 70px;
+    width: 158px;
+    font-size: 60px;
+    justify-content: center;
+    padding-left: 20px;
+    /* padding-bottom: -5px; */
+    font-weight: -1;
+}
+
+
+/* page2  */
+.page2{
+    background-color: rgb(255, 255, 255);
+    height: 350px;
+    margin: 70px;
+}
+
+.page2p{
+    color: orangered; 
+    font-size: 20px
+}
+.part{
+    background-color: rgb(255, 255, 255);
+    font-size: 35px;
+    text-align: center;
+    font-weight: 200;
+    line-height: 20px;
+    text-decoration: none;
+    height: 100px;
+    margin-top: 200px;
+    
+}
+.oems{
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    /* margin: 30px; */
+    margin-left: 45px;
+    background-color: white;
+}
+.oems img{
+    width: 160px;
+    height: 150px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 20px;
+    margin: 20px;     
+    margin-top: 100px;   
+    
+}
+
+
+/* page3 */
+
+.page123{
+    margin:70px;
+    background-color: #ffffff;
+    width:1400px;
+    height: 600px;
+    display: flex;
+    text-decoration: none !important;
+}
+
+.imageinfo{
+    background-color: #ffffff;
+    width: 50%;
+    margin: 30px;
+    text-decoration: none;
+}
+.imageinfo p{
+    color: black;
+    margin-left: 100px;
+    font-size: 20px;
+}
+.imageinfo img{
+    width: 280px;
+    height: 340px;
+    margin-left: 300px;
+    margin-right: 280px;;
+}
+.textinfo{
+    color: black;
+    font-size: 45px;
+}
+
+
+.inform{
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    font-size: 18px;
+    margin-left: 10px;
+    
+}
+
+.feature{
+    margin-left: 80px;
+    color: black;
+    margin-top: 2px;
+    font-size: 28px;
+    width:300px
+}
+
+.feature img{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.feature p{
+    font-size: 15px;
+    color: gray
+}
+
+    /* PAGE 3 CSS MAYNAK */
+    .page3{
+
+            
+            background-color: rgb(0, 0, 32); 
+            border-radius: 10px;
+            color: red;
+            text-align: center;
+            font-family:Arial, sans-serif;
+            width: 1600px;
+            height:1000px;
+            margin: auto;
+            padding-top: 2px;
+            padding-bottom: 10px;
+
+           
+        }
+
+        .page3 h1 span{
+          
+            text-decoration: underline;
+            color: red;
+        }
+
+        .page3 h1{
+          
+            color: white;
+            margin-bottom: 20px;
+           
+        }
+
+        .page3 h4{
+          padding-top: 70px;
+        }
+        
+        .page3 article{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: rgb(255, 255, 255);
+            border-top: 1px dashed ;
+            border-bottom: 1px dashed;
+            padding: 30px;
+
+        }
+
+        .page3 .boxer{
+            color:  rgb(250, 3, 3);;
+            font-size: 40px;
+            
+        }
+
+        .page3 .texter{
+            text-align: justify;
+        }
+
+      
+
+        .page3 .image :nth-child(1){
+            border-radius: 10px;
+        }
+        
+        .page3 .arrow img{
+            padding-top: 4px;
+            padding-right: 300px;
+            
+            
+        }
+        .page3 .arrow{
+            width: 30px;
+            height: 30px; 
+            border: 1px solid rgb(53, 0, 0);
+            border-radius: 5px;
+            
+        }
+
+        .page3 button{
+            margin-top: 30px;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 5px;
+            border-color: #ffffff;
+            background-color: #000000;
+        }
+
+        .page3 button:hover{
+            background-color: rgb(137, 1, 1);
+        } 
+
+        /* PAGE 4 CSS FENIL */
+
+      .page4-header {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .page4-header-small {
+        color: orangered;
+        font-size: 25px;
+      }
+      .page4-header-large {
+        margin-top: 0px;
+        color: black;
+        font-size: 50px;
+        font-weight: 550;
+      }
+      .page4-span {
+        color: orangered;
+        font-size: 50px;
+        text-decoration: underline;
+      }
+      .page4-image {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .page4-image img {
+        height: 100px;
+        border-radius: 10px;
+      }
+      .page4-box {
+        display: flex;
+        margin: 0px 10%;
+      }
+      .page4-box-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 25px;
+      }
+      .page4-box-page4-desc {
+        font-size: 16px;
+        text-align: center;
+        margin: 0px 60px;
+        font-weight: lighter;
+        color: grey;
+      }
+      .page4-cleanimg {
+        margin-top: 90px;
+        margin-left: 170px;
+        margin-right: 180px;
+
+      }
+      .page4-cleanimg img:nth-of-type(1) {
+        width: 565px;
+        height: 570px;
+        border-radius: 15px;
+      }
+      .page4-cleanimg img:nth-of-type(2) {
+        width: 355px;
+        height: 300px;
+        border-radius: 15px;
+      }
+      .page4-cleanimg img:nth-of-type(3) {
+        width: 355px;
+        height: 300px;
+        border-radius: 15px;
+      }
+
+/* griding */
+      .page4-cleanimg {
+        display: grid;
+        grid-template-columns: 565px 355px 355px;
+        grid-template-rows: 250px 300px;
+        gap: 20px;
+      }
+      .page4-cleanimg img:nth-of-type(1) {
+        grid-column: 1;
+        grid-row: 1 / 3;
+      }
+      .page4-cleanimg .page4-desc {
+        grid-column: 2/4;
+      }
+      .page4-cleanimg {
+        grid-column: 1/2;
+        grid-row: 1/3;
+      }
+      .page4-cleanimg img:nth-of-type(2) {
+        grid-column: 2;
+        grid-row: 2/ span 1;
+      }
+      .page4-cleanimg img:nth-of-type(3) {
+        grid-column: 3;
+        grid-row: 2/3;
+      }
+      .page4-desc{
+        margin-top: 75px;
+        padding: 0px;
+        text-align: end;
+      }
+      .page4-project-small{
+        color: orangered;
+        font-size: 25px;
+      }
+      .page4-project-large{
+        margin-top: -30px;
+        padding: 0px;
+        color: black;
+        font-size: 50px;
+        font-weight: 550;
+      }
+      .page4-footer{
+        display: flex;
+        gap: 7px;
+        padding: 25px;
+        justify-content: center;
+        margin-left: 3%;        
+      }
+      .page4-dot-active{
+        width: 50px;
+        height: 9px;
+        background-color: orangered;
+        border-radius: 10px;
+      }
+      .page4-dot{
+        width: 9px;
+        height: 9px;
+        background-color: grey;
+        border-radius: 10px;
+      }
+      .page4-dot:hover{
+        background-color: orangered;
+        cursor: pointer;
+      }
+
+      /* PAGE 5 CSS MAYANK */
+      .page5{
+            background-color: rgb(254, 253, 253);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .page5 .icon_one img{
+            height: 50px;
+            width: 50px;
+            margin-left: 25px;
+            margin-top: -25px;
+        }
+
+        .page5 .icon1 p{
+            font-size: 13px;
+            color: #a4a2a2;
+            margin-left: 20px;
+            margin-top: -5px;
+        }
+
+        .page5 .icon1 {
+           
+            height:15px ;
+            width: 100px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 50px;
+            background-color: #ffffff;
+            margin-right: -10px;
+        }
+        .page5 .icon1:hover {
+           box-shadow: 2px 2px rgb(251, 125, 125);
+        }
+
+
+        .page5 .icon2 p{
+            font-size: 13px;
+            color: #a4a2a2;
+            margin-left: 20px;
+            margin-top: -5px;
+        } 
+
+        .page5 .icon2{
+            height:15px ;
+            width: 100px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+        .page5 .icon2:hover {
+           box-shadow: 2px 2px rgb(251, 125, 125);
+        }
+
+
+        .page5 .icon3{
+            font-size: 13px;
+            height:15px ;
+            width: 100px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+        .page5 .icon3 p{
+            font-size: 11px;
+            color: #a4a2a2;
+            margin-left: 10px;
+            margin-top: -5px;
+        } 
+        .page5 .icon3:hover {
+           box-shadow: 2px 2px rgb(251, 125, 125);
+        }
+        .page5 .icon4{
+            font-size: 13px;
+            height:15px ;
+            width: 100px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+        .page5 .icon4 p{
+            font-size: 13px;
+            color: #a4a2a2;
+            margin-left: 20px;
+            margin-top: -5px;
+        } 
+        .page5 .icon4:hover {
+           box-shadow: 2px 2px rgb(251, 125, 125);
+        }
+        .page5 .icon5{
+            font-size: 13px;
+            height:15px ;
+            width: 100px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+        .page5 .icon5 p{
+            font-size: 13px;
+            color: #a4a2a2;
+            margin-left: 20px;
+            margin-top: -5px;
+        }
+        .page5 .icon5:hover {
+           box-shadow: 2px 2px rgb(251, 125, 125);
+        }
+        .page5 .icon6{
+            font-size: 13px;
+            height:15px ;
+            width: 100px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+        .page5 .icon6 p{
+            font-size: 13px;
+            color: #a4a2a2;
+            margin-left: 20px;
+            margin-top: -5px;
+        }
+        .page5 .icon6:hover {
+           box-shadow: 2px 2px rgb(251, 125, 125);
+        }
+
+        .page5 h1 span{
+            text-decoration: underline;
+            color: red;
+        }
+
+        .page5 h1{
+            font-weight: 200;
+            margin-left: 41%;
+            font-size: 28px;
+            margin-top: -10px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+            justify-content: center;
+        
+        }
+        .page5 h4{
+            font-weight: 200;
+            margin-left: 48%;
+            color: red;
+            justify-content: center;
+        }
+
+        .page5 .box0{
+            border: 200px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 120px;
+            margin-left: 30px;
+            margin-right: 30px;
+            border-radius: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .page5 .two{
+          justify-content: space-between;
+          margin: 30px;
+        }
+        .page5 .box1{ 
+            background-color: rgb(237, 238, 238);
+            border: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            margin-bottom: 20px;
+            height: 120px;
+       }
+       .page5 .box2{
+            background-color: rgb(11, 11, 11);
+            color: white;
+            border: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            margin-bottom: 20px;
+            height: 120px;
+       }
+       .page5 .box3{
+            background-color: rgb(237, 238, 238);
+            border: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            margin-bottom: 20px;
+            height: 120px;
+       }
+       .page5 h5{
+            margin-left: 20px;
+            margin-top: -30px ;
+       }
+       .page5 .box1 p{
+            margin-left: -350px;
+            margin-top: 30px;
+       }
+       .page5 .box2 p{
+            margin-left: -370px;
+            margin-top: 30px;
+       }
+       .page5 .box3 p{
+            margin-left: -360px;
+            margin-top: 30px;
+       }
+       .page5 .box1 ul>li{
+        list-style-image: url(/Users/mayank.goyal/Documents/Frontend/images/check_markk.png);
+        
+       }
+       .page5 .box2 ul>li{
+        list-style-image: url(/Users/mayank.goyal/Documents/Frontend/images/check_mark.png);
+       }
+       .page5 .box3 ul>li{
+        list-style-image: url(/Users/mayank.goyal/Documents/Frontend/images/check_markk.png);
+        
+       }
+       .page5 p span{
+        font-size: 30px;
+        color: red;
+       }
+       
+
+       .page5 button{
+            background-color: #ffffff;
+            margin-top: 5px;
+            margin-right: 30px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            align-items: center;
+            font-size: 12px;
+            border-radius: 5px;
+            border-color: #ffffff;
+            height: 30px;
+       }
+       .page5 button:hover{
+        background-color: rgb(233, 44, 44);
+       }
+
+
+/* PAGE 6 CSS JAY*/
+    
+      .page6 {
+      
+      background: white;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .stats-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+    }
+
+    .stats-box {
+      background: #eae8e8;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px 10px;
+      height: 100px;
+      width: 270px;
+      transition: transform 0.3s;
+    }
+
+    .stats-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .stats-icon {
+      font-size: 12px;
+      color: #d32f2f;
+      margin-bottom: 1px;
+      object-fit: contain;
+
+
+    }
+
+    .stats-number {
+      font-size: 30px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .stats-label {
+      font-size: 12px;
+      color: #292828;
+      margin-top: 1px;
+    }
+
+    /* -------------------- */
+
+    .award-container {
+      display: flex;
+      background-color: #eae8e8;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+      overflow: hidden;
+      width: 1600px;
+      height: 500px;
+    }
+
+    .award-image img {
+      width: 100%;
+      max-width: 500px;
+      background-color: #eae8e8;
+      height: 420px;
+      margin: 40px 10px 10px 70px;
+      object-fit: fill;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .award-text {
+      padding: 70px;
+      padding-left: 170px;
+      flex: 1;
+    }
+
+    .award-title {
+      color: #c0392b;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .award-text h2 {
+      font-size: 50px;
+      margin: 0 0 20px;
+      color: #2c3e50;
+    }
+
+    .award-highlight {
+      color: #e74c3c;
+    }
+
+    .award-logos img {
+      width: 200px;
+      height: 100px;
+      background-color: #c3c1c1;
+
+      margin-right: 15px;
+    }
+
+    /* ----------*/
+    .testimonial-section {
+      text-align: center;
+      margin-top: 60px;
+      width: 1400px;
+    }
+
+    .testimonial-section h2 {
+      font-size: 30px;
+    }
+
+    .testimonial-section h2 span {
+      color: #e74c3c;
+      text-decoration: underline;
+    }
+
+    .testimonial {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px;
+    }
+
+    .testimonial-box {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      flex: 1;
+      text-align: left;
+      width: 300px;
+      position: relative;
+    }
+
+    .testimonial-box::after {
+      content: "”";
+      font-size: 100px;
+      color: #ddd;
+      position: absolute;
+      top: 10px;
+      margin-right: 10px;
+      width: 30px;
+      right: 20px;
+    }
+
+    .testimonial-stars {
+      color: #e74c3c;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-text {
+      margin-top: 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .author img {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+
+    }
+
+    .author-info {
+      font-size: 14px;
+    }
+
+    .author-info strong {
+      display: block;
+      font-weight: bold;
+      color: black;
+    }
+
+    .author-info light {
+      display: block;
+      color: #555;
+    }
+
+
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .pagination span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 2px;
+    }
+
+    .pagination .active {
+      width: 50px;
+        height: 9px;
+        background-color: orangered;
+        border-radius: 10px;
+    }
+    /* PAGE 7 CSS JAY*/
+    .page7 {
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: #0a0a0a;
+    }
+
+    .team-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+
+    .team-first-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .team-header-section {
+      grid-column: span 2;
+      text-align: left;
+      background: white;
+      padding: 50px 0px;
+      border-radius: 2px;
+    } 
+
+    .team-subheading {
+      color: #fa5720;
+      font-size: 20px;
+
+    }
+
+    .team-header-title {
+      font-size: 52px;
+      margin-top: 10px;
+    }
+
+    .team-highlight {
+      color: #fa5720;
+      text-decoration-line: underline;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width:300px;
+      height:350px;
+      
+      
+    }
+
+    .team-member img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .team-info {
+      background: #fa5720;
+      color: white;
+      position: relative;
+      padding: 15px 10px;
+      text-align: center;
+      margin-left: 40px;
+      margin-right: 40px;
+      bottom: 90px;
+    }
+
+    .team-info h3 {
+      margin: 0;
+      font-size: 18px;
+      
+    }
+
+    .team-info p {
+      margin: 5px 0 0;
+     
+    }
+    .team-second-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    /* PAGE 8 CSS FENIL */
+    .page8-box1 {
+        margin: 3% 45px;
+        height: 700px;
+        background-size: 100% 700px;
+        background-color: #050d1f;
+
+        position: relative;
+      }
+      .page8-box1 img {
+        height: 700px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0.1;
+      }
+      .page8-grid {
+        position: absolute;
+        margin: 0px 8%;
+        top: 30%;
+        color: black;
+        overflow: visible;
+      }
+      .page8-faq {
+        font-size: 25px;
+        font-weight: 550;
+        color: white;
+      }
+      .page8-combine {
+        border-radius: 5px;
+        padding: 0px 20px;
+        background-color: white;
+      }
+
+      .page8-que {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        color: black;
+      }
+      .page8-ans {
+        font-size: 15px;
+        color: gray;
+        width: 70%;
+        margin-top: -2%;
+        padding-bottom: 3px;
+      }
+
+      .page8-box2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        color: white;
+        border: 0.1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        padding: 0px 20px;
+      }
+      .page8-form {
+        background-color: orangered;
+        padding: 25px;
+        border-radius: 7px;
+        margin-top: 15px;
+        width: 75%;
+      }
+      .page8-name {
+        border: 0.1px solid rgba(255, 255, 255, 0.5);
+        align-items: center;
+        display: flex;
+        background-color: orangered;
+        padding: 7px 0px 7px 20px;
+        margin: 20px 10px 0px 10px;
+        border-radius: 5px;
+      }
+      .page8-name img {
+        width: 18px;
+        height: 18px;
+      }
+      .page8-name input {
+        border: none;
+        outline: none;
+        height: 30px;
+        background-color: orangered;
+        margin-left: 10px;
+      }
+      .page8-name input::placeholder {
+        color: white;
+      }
+      
+      .page8-message{
+        border: 0.1px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        background-color: orangered;
+        padding: 7px 0px 0px 20px;
+        margin: 20px 10px 0px 10px;
+        border-radius: 5px;
+      }
+      .page8-message img {
+        width: 18px;
+        height: 18px;
+      }
+      .page8-message textarea {
+        border: none;
+        outline: none;
+        background-color: orangered;
+        margin-left: 10px;
+        width: 100%;
+        height: 100%;
+      }
+      .page8-message textarea::placeholder {
+        color: white;
+      }
+      .page8-btnsubmit {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 15px;
+        width: 95%;
+        margin: 20px 10px 25px 10px;
+        border-radius: 5px;
+      }
+      .page8-btnsubmit:hover {
+        background-color: white;
+        color: black;
+      }
+/* page8-grid  */
+      .page8-grid {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 0px 148px 50px 50px 50px 50px 65px;
+        gap: 20px;
+      }
+      .page8-grid .white-page8-box {
+        grid-column: 1/2;
+        grid-row: 2/3;
+      }
+      .page8-grid div:nth-of-type(2) {
+        grid-column: 1/2;
+        grid-row: 3/4;
+      }
+      .page8-grid div:nth-of-type(3) {
+        grid-column: 1/2;
+        grid-row: 4/5;
+      }
+      .page8-grid div:nth-of-type(4) {
+        grid-column: 1/2;
+        grid-row: 5/6;
+      }
+      .page8-grid .page8-form {
+        grid-column: 2/3;
+        grid-row: 1/8;
+      }
+
+  /* for 4 icons */
+      .page8-box{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 10% 10% 0% 10%;
+        text-align: center;
+      }
+      .page8-textdet{
+        font-size: 20px;
+        color: black;
+        font-weight: 550;
+      }
+      .page8-moredetail{
+        font-size: 15px;
+        color: gray;
+      }
+      .page8-box img{
+        width: 40px;
+        height: 40px;
+        border-radius: 2%;
+      }
+      .page8-lastline{
+        margin: 0% 13%;
+        opacity: 0.3;
+      }
+      .page8-footer{
+        margin: 0% 19% 0% 13%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .page8-symbols{
+        display: flex;
+        gap: 7px;
+        width: 30px;
+        height: 30px;
+      }
+      .page8-symbols img:nth-child(1){
+        margin-right: 35px;
+      }
+      .page8-arrow{
+        position: fixed;
+        bottom: 1%;
+        right: 2%;
+      }
+      .page8-arrow img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      .page8-arrow button{
+        border: none;
+        background-color: transparent;
+      }
+  </style>
+</head>
+
+<body>
+<!-- PAGE 1 AND 2 HTML INDRAJEET -->
+
+<section class="header">
+  <article class="head">
+      <img src="images/valtechauto-logo.png">
+      <div class="contact"><img src="images/call.png">Call Us Now <br>&nbsp;+91 9876543210</div>
+      <div class="contact"><img src="images/email-copy.png" alt="">Send Us Email <br>&nbsp; valtechauto@gmail.com</div>
+      <div class="contact"><img src="images/loc.png" alt="">Our Location <br>&nbsp; Bangalore | Pune | Ahmedabad - INDIA</div>
+      <div class="buttons">
+          <button class="signin">Sign In <i class="fa-solid fa-arrow-right-to-bracket fa-sm" style="color: #f98806;"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="car">Add Car <i class="fa-solid fa-car fa-sm" style="color: #ffffff;"></i></button>
+      </div>
+  </article>
+  <article class="nav">
+      <ul>
+          <li>Home</li>
+          <li>Feature</li>
+          <li>Service</li>
+          <li>Pricing</li>
+          <li>Team</li>
+          <li>Contact</li>
+      </ul>
+      <span class="icons">
+          <img src="images/search.png"><span id="pipe">|</span>
+          <img src="images/twitter.png">
+          <img src="images/linked.png">
+          <img src="images/face.png">
+      </span>
+  </article>
+
+
+
+ </section>
+ <section class="box">
+      <article class="home">
+          <img src="images/home.png">
+          <div class="icon">
+              <i class="fa-solid fa-arrow-right-long fa-flip-horizontal"></i>
+              <i class="fa-solid fa-arrow-right-long fa-flip-vertical"></i>
+          </div>
+          
+      </article>
+      <article class="text">
+          <p class="main">Fast, Affordable <br>And Expert Auto <br><span>Car</span> Repair</p><br>
+          <p class="para">Welcome to ValtechAuto where innovation drives<br> every journey.
+              Discover a range of designed to<br>
+              elevate your driving experience.
+          </p><br>
+          <button>Get Started Now</button>     
+      </article>
+ </section>
+
+
+
+ <!-- page 2 -->
+ <section class="page2">
+  <article class="part">
+      <p class="page2p">Partners <br><h3 style="font-weight: 400;">Browse by <span>Company </h3></p>
+  </article>
+  <article class="oems">
+      <img src="images/jeep.webp">
+      <img src="images/ford.png">
+      <img src="images/mazda.png">
+      <img src="images/bmw.svg">
+      <img src="images/honda2.jpg">
+      <img src="images/audi.jpg">
+      <img src="images/nissan.png">
+  </article>
+ </section>
+
+
+
+ <!-- page3 -->
+
+ <section class="page123">
+  <article class="imageinfo">
+
+      <p style="color: orangered;">Why Choose Us <br></p>
+          <h1 style="font-weight: 600; font-size: 40px; margin-left: 120px; color: black;">
+              Why We're the Right <br>
+          <span>Choice</span> for You
+          </h1>
+      
+      <img src="images/page3.png">
+  </article>
+  <article class="inform">
+      <div class="feature">
+          <img src="images/support.png" alt="">
+          <h3>24/7 Support</h3>
+          <p>Whether you're looking for a brand- <br>new model or a certified, we have a<br> diverse.</p>
+      </div>
+
+      <div class="feature">
+          <img src="images/competitve.png" alt="">
+          <h3>Competitive Pricing</h3>
+          <p>Whether you're looking for a brand- <br>new model or a certified, we have a<br> diverse.</p>
+      </div>
+
+      <div class="feature">
+          <img src="images/eco.png" alt="">
+          <h3>Eco-Friendly Service</h3>
+          <p>Whether you're looking for a brand- <br>new model or a certified, we have a<br> diverse.</p>
+      </div>
+
+      <div class="feature">
+          <img src="images/techno.png" alt="">
+          <h3>Cleaning Technology</h3>
+          <p>Whether you're looking for a brand- <br>new model or a certified, we have a<br> diverse.</p>
+      </div>
+
+  </article>
+ </section>
+
+<!-- PAGE 3 HTML MAYANK -->
+    <section class="page3">
+      <h4>Our Service</h4>
+      <h1>Our Car <span>Service</span></h1>
+     
+
+      <article>
+      <div class="boxer">01</div>
+      <div class="texter">
+          <h3>Precision Auto Care</h3>
+          <p>Exterior cleaning with soap and water,<br> 
+              followed by a rinse and air dry.</p>
+      </div>
+      <div class="image">
+          <img src="images/Car_1.png" alt="Precision Auto Care">
+      </div>
+      <div class="arrow">
+          <img src="images/arrow_icon.png" alt="Precision Auto Care">
+      </div>
+      </article>
+      
+
+
+      <article>
+          <div class="boxer">02</div>
+          <div class="texter">
+              <h3>DriveWell Auto Repair</h3>
+              <p>Exterior cleaning with soap and water,<br> 
+                  followed by a rinse and air dry.</p>
+          </div>
+          <div class="image">
+              <img src="images/Car_2.png" alt="DriveWell Auto Repair">
+          </div>
+          <div class="arrow">
+              <img src="images/arrow_icon.png" alt="DriveWell Auto Repair">
+          </div>
+      </article>
+   
+
+
+      <article>
+          <div class="boxer">03</div>
+          <div class="texter">
+              <h3>Revive Auto Solutions</h3>
+              <p>Exterior cleaning with soap and water, <br>
+                  followed by a rinse and air dry.</p>
+          </div>
+          <div class="image">
+              <img src="images/Car_3.png" alt="Revive Auto Solutions">
+          </div>
+          <div class="arrow">
+              <img src="images/arrow_icon.png" alt="Revive Auto Solutions">
+          </div>
+      </article>
+   
+
+
+     <button>See All Service</button>
+       
+  </section> 
+
+<!-- PAGE 4 HTML FENIL -->
+<div class="page4-header">
+  <p class="page4-header-small">Our Work Process</p>
+  <p class="page4-header-large">Our Work <span class="page4-span">Process</span></p>
+</div>
+
+<div class="page4-image">
+  <img src="./images/combine.png" alt="all combine image" />
+</div>
+
+<section>
+<div class="page4-box">
+  
+  <div class="page4-box1">
+    <p class="page4-box-title">Issue Identification</p>
+    <p class="page4-box-page4-desc">
+      The mechanic or service advisor talks to the customer to understand
+      the problem noises, performance issues, warning lights
+    </p>
+  </div>
+  
+  <div class="page4-box2">
+    <p class="page4-box-title">Quality Control & Testing</p>
+    <p class="page4-box-page4-desc">
+      The mechanic or service advisor talks to the customer to understand
+      the problem noises, performance issues, warning lights
+    </p>
+  </div>
+  
+  <div class="page4-box3">
+    <p class="page4-box-title">Customer Notification & Handover</p>
+    <p class="page4-box-page4-desc">
+      The mechanic or service advisor talks to the customer to understand
+      the problem noises, performance issues, warning lights
+    </p>
+  </div>
+
+</div>
+</section> 
+
+<div class="page4-cleanimg">
+  
+  <img src="./images/clean1.png" alt="cleaning car img1" />
+  
+  <div class="page4-desc">
+    <div class="page4-project-small"><p>Our Project</p></div>
+    <div class="page4-project-large">
+      <p>Car Repair <span class="page4-span">Project</span></p> </div>
+  </div>
+  
+  <img src="./images/clean2.png" alt="cleaning car img2" />
+  <img src="./images/clean3.png" alt="cleaning car img3" />
+</div>
+
+<div class="page4-footer">
+  <div class="page4-dot-active"></div>
+  <div class="page4-dot"></div>
+  <div class="page4-dot"></div>
+  <div class="page4-dot"></div>
+  <div class="page4-dot"></div>
+  <div class="page4-dot"></div>
+</div>
+</div>
+
+<!-- PAGE 5 HTML MAYANK -->
+<section class="page5">
+  <section class="one">
+      <h4>Pricing</h4>
+      <h1>Choose the Perfect <span>Plan</span></h1>
+      
+      
+      <div class="box0">
+          <article class="icon1">
+              <div class="icon_one">
+                  <img src="images/hatchback.png" alt="Hatchback">
+              </div>
+              <p>Hatchback</p>
+          </article>
+          <article class="icon2">
+              <div class="icon_one">
+                  <img src="images/Minivan.png" alt="Minivan">
+              </div>
+              <p>Minivan</p>
+          </article>
+          <article class="icon3">
+              <div class="icon_one">
+                  <img src="images/RegularSizeCar.png" alt="Regular Size Car">
+              </div>
+              <p>Regular Size Car</p>
+          </article>
+          <article class="icon4">
+              <div class="icon_one">
+                  <img src="images/Sedans.jpg" alt="Sedans">
+              </div>
+              <p>Sedans</p>
+          </article>
+          <article class="icon5">
+              <div class="icon_one">
+                  <img src="images/Convertible.jpg" alt="Convertible">
+              </div>
+              <p>Convertible</p>
+          </article>
+          <article class="icon6">
+              <div class="icon_one">
+                  <img src="images/SportsCar.png" alt="Sports Car">
+              </div>
+              <p>Sports Car</p>
+          </article>
+      </div>
+      
+
+  </section>
+
+
+
+  <section class="two">
+      <article class="box1">
+              <h5>Basic Repair</h5>
+              <p><span>$19.00/</span>month</p>
+              <ul>
+                  <li>Oil Change</li>
+                  <br>
+                  <li>Brake Pad Replacement</li>
+              </ul>
+              <ul>
+                  <li>Tire Rotation</li>
+                  <br>
+                  <li>Transmission Repair</li>
+              </ul>
+          <button>Choose Plan</button>
+      </article>
+
+
+      <article class="box2">
+              <h5>Premium Repair</h5>
+              <p><span>$59.00/</span>month</p>
+              <ul>
+                  <li>Oil Change</li>
+                  <br>
+                  <li>Brake Pad Replacement</li>
+              </ul>
+              <ul>
+                  <li>Tire Rotation</li>
+                  <br>
+                  <li>Transmission Repair</li>
+              </ul>
+              <button>Choose Plan</button>            
+      </article>
+
+
+      <article class="box3">
+              <h5>Deluxe Repair</h5>
+              <p><span>$29.00/</span>month</p>
+              <ul>
+                  <li>Oil Change</li>
+                  <br>
+                  <li>Brake Pad Replacement</li>
+              </ul>
+              <ul>
+                  <li>Tire Rotation</li>
+                  <br>
+                  <li>Transmission Repair</li>
+              </ul>
+
+          <button>Choose Plan</button>
+      </article>
+
+
+
+  </section>
+  </section>
+
+  
+
+  <!-- PAGE 6 HTML JAY -->
+
+<div class="page6">
+  <div class="stats-container">
+    <div class="stats-box">
+      <div class="stats-icon">
+        <img src="images/icon-01.png" alt="Award Image">
+      </div>
+      <div class="stats-number">320M</div>
+      <div class="stats-label">Cars For Sale</div>
+    </div>
+    <div class="stats-box">
+      <div class="stats-icon">
+        <img src="images/icon-02.png" alt="Award Image">
+      </div>
+      <div class="stats-number">5500+</div>
+      <div class="stats-label">Dealer Review</div>
+    </div>
+    <div class="stats-box">
+      <div class="stats-icon">
+        <img src="images/icon-03.png" alt="Award Image">
+      </div>
+      <div class="stats-number">300M</div>
+      <div class="stats-label">Verified User</div>
+    </div>
+    <div class="stats-box">
+      <div class="stats-icon">
+        <img src="images/icon-04.png" alt="Award Image">
+      </div>
+      <div class="stats-number">10M</div>
+      <div class="stats-label">Visitor Per Day</div>
+    </div>
+  </div>
+
+  <div class="award-container">
+    <div class="award-image">
+      <img src="images/Award.png" alt="Award Image">
+    </div>
+    <div class="award-text">
+      <p class="award-title">Award</p>
+      <h2>
+        Best in Repair and Service<br>
+        of Excellence Provider<br>
+        Winners for <span class="award-highlight">2024</span>
+      </h2>
+      <div class="award-logos">
+        <img src="images/game-award-logo-Photoroom.png" alt="Game Award">
+        <img src="images/wellbeing-award-logo-Photoroom.png" alt="Wellbeing Award">
+        <img src="images/cma-award-logo-Photoroom.png" alt="CMA Award">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="testimonial-section">
+    <p style="color: #d32f2f;">Testimonial</p>
+    <h2>What Our <span>Clients</span> Say</h2>
+    <div class="testimonial">
+      <div class="testimonial-box">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">
+          Welcome to ValtechAuto where innovation drives every journey. Discover a range of designed to elevate your
+          driving experience.
+        </div>
+        <div class="author">
+          <img src="images/ceo3.jpg" alt="Michael Dam">
+          <div class="author-info">
+            <strong>Michael Dam</strong>
+            <light>CEO of Car Fashion</light>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-box">
+        <div class="testimonial-stars">★★★☆☆</div>
+        <div class="testimonial-text">
+          Welcome to ValtechAuto where innovation drives every journey. Discover a range of designed to elevate your
+          driving experience.
+        </div>
+        <div class="author">
+          <img src="images/ceo2.jpg" alt="Alex Martinez">
+          <div class="author-info">
+            <strong>Sarah Martinez</strong>
+            <light>CEO of Apex Solutions</light>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-box">
+        <div class="testimonial-stars">★★★★☆</div>
+        <div class="testimonial-text">
+          Welcome to ValtechAuto where innovation drives every journey. Discover a range of designed to elevate your
+          driving experience.
+        </div>
+        <div class="author">
+          <img src="images/ceo1.avif" alt="Jonathon Doe">
+          <div class="author-info">
+            <strong>Jonathon Doe</strong>
+            <light>CEO of Mazda</light>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 7 HTML JAY -->
+<div class="page7">
+    <div class="team-container">
+      <div class="team-first-grid">
+        
+        <div class="team-member">
+          <img src="images/team_member_1.jpg" alt="Award Image"> 
+                  <div class="team-info">
+                      <h3>Michael Roy</h3>
+                      <p>Manager</p>
+                  </div>
+        </div>
+  
+        <div class="team-member">
+          <img src="images/team_member_2.jpg" alt="Award Image">
+                  <div class="team-info">
+                      <h3>Jonathan Doe</h3>
+                      <p>Diesel Mechanic</p>
+                  </div>
+        </div>
+  
+        <div class="team-header-section">
+          <p class="team-subheading">Our Team</p>
+          <h1 class="team-header-title">Let’s Meet Our <span class="team-highlight">Expert</span> Mechanic</h1>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="team-container">
+      <div class="team-second-grid">
+        <div class="team-member">
+          <img src="images/team_member_3.jpg" alt="Award Image">
+          <div class="team-info">
+              <h3>Sophia Davis</h3>
+              <p>Car Wash Expert</p>
+          </div>
+        </div>
+  
+        <div class="team-member">
+          <img src="images/team_member_4.jpg" alt="Award Image">
+          <div class="team-info">
+              <h3>Amelia Scot</h3>
+              <p>Office Executive</p>
+          </div>
+        </div>
+  
+        <div class="team-member">
+          <img src="images/team_member_5.jpg" alt="Award Image">
+                  <div class="team-info">
+                      <h3>Net Reynolds </h3>
+                      <p>Automotive Technian</p>
+                  </div>
+        </div>
+  
+        <div class="team-member">
+          <img src="images/team_member_6.jpg" alt="Award Image">
+                  <div class="team-info">
+                      <h3>Joe Howard</h3>
+                      <p>Senior Manager</p>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 8 HTML FENIL -->
+  <div class="page8-box1">
+    <img src="./images/carclean1.jpg" alt="clean"/>
+
+<section>
+    <div class="page8-grid">
+      <div>
+        <div class="page8-faq">Frequently Asked Question</div>
+        <div class="page8-combine">
+          <div class="page8-que">
+            <p>Are there mileage limits on the rental?</p>
+            <span>-</span>
+          </div>
+
+          <div class="page8-ans">
+            <p>
+              Nullam varius luctus pharetra ultrices volpat facilisis donec
+              tortor, nibhkisys abitant curabitur at nunc nisl magna ac
+              rhoncus vehicula sociis tortor nist hendrerit molestie integer.
+              Nullam varius luctus.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page8-box2">
+        <p>Can I get an estimate before you start the work?</p>
+        <span>+</span>
+      </div>
+
+      <div class="page8-box2">
+        <p>What should I do if the rental car breaks down?</p>
+        <span>+</span>
+      </div>
+
+      <div class="page8-box2">
+        <p>How do I modify or cancel my reservation?</p>
+        <span>+</span>
+      </div>
+  
+
+      <div class="page8-form">
+        <div class="page8-faq" style="text-align: center; margin-top: 10px">
+          Get in touch
+        </div>
+
+        <div class="page8-name">
+          <label for="name"><img src="./images/user.png" alt="profile" /></label>
+          <input type="text" id="page8-name" placeholder="what is your name?" />
+        </div>
+        <div class="page8-name">
+          <label for="email"
+            ><img src="./images/email.png" alt="email"
+          /></label>
+          <input type="email" id="email" placeholder="Email Address" />
+        </div>
+        <div class="page8-name">
+          <label for="phone"
+            ><img src="./images/phone-call.png" alt="phone"
+          /></label>
+          <input type="number" id="phone" placeholder="Phone Number" />
+        </div>
+        <div class="page8-name">
+          <label for="ct"
+            ><img src="./images/electric-car.png" alt="car"
+          /></label>
+          <input type="text" id="ct" placeholder="Car Type" />
+        </div>
+        <div class="page8-message">
+          <label for="message"><img src="./images/chat.png" alt="chat"/></label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message"
+            rows="4"
+          ></textarea>
+        </div>
+        <button class="page8-btnsubmit">Submit Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page8-box">
+    <div>
+      <img src="./images/call copy.png" alt="call"/>
+      <p class="page8-textdet">Call Us Now</p>
+      <p class="page8-moredetail">+91 9876543210</p>
+    </div>
+
+    <div>
+      <img src="./images/location.png" alt="location"/>
+      <p class="page8-textdet">Our Location</p>
+      <p class="page8-moredetail">Bengluru | Pune | Ahmedabad</p>
+    </div>
+
+    <div>
+      <img src="./images/mailbox.png" alt="mailbox"/>
+      <p class="page8-textdet">Send Us Mail</p>
+      <p class="page8-moredetail">valtechauto@gmail.com</p>
+    </div>
+
+    <div>
+      <img src="./images/timing.png" alt="time"/>
+      <p class="page8-textdet">Working Hours</p>
+      <p class="page8-moredetail">Monday - Friday: 10 am - 8 pm</p>
+    </div>
+  </div>
+</section>
+
+  <br>
+  <br>
+  <hr class="page8-lastline"/>
+  <br>
+  <br>
+  
+  <div class="page8-footer">
+    <p>Copyright &copy; 2025 All Rights Reserved By ValtechAuto</p>
+    <div class="page8-symbols">
+      <img src="./images/x copy.png" alt="x"/>
+      <img src="./images/facebook.png" alt="facebook"/>
+      <img src="./images/linkd.png" alt="linkdin"/>
+    </div>
+  </div>
+  <div class="page8-arrow">
+    <button><img src="./images/uparrow.png" alt="arrow"/></button>
+  </div>
+</body>
+
+</html>
