@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Maintenance Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            position: relative;
+            overflow: hidden;
+            color: #333;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: url("images/image1.png") no-repeat center center;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        input,
+        select,
+        button {
+            margin: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+            margin-left: 50px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 95%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #040404;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #dc3545;
+            font-style: italic;
+        }
+
+        th select {
+            width: 100%;
+            margin: 4px 0 0 0;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        .actions button {
+            margin-right: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #343a40;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin-left: 20px;
+            margin-right: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Vehicle Maintenance Tracker</h1>
+
+        <h3>Add/Edit Task</h3>
+        <input type="hidden" id="editIndex" value="">
+        <!-- 
+    <h3>Add/Edit Task</h3>
+    <input type="hidden" id="editIndex" value="">
+    <input type="text" id="vehicleName" placeholder="Vehicle Name">
+    <input type="text" id="model" placeholder="Model">
+    <input type="text" id="taskDetail" placeholder="Task Detail">
+    <input type="date" id="dueDate">
+    <button onclick="saveTask()">Save Task</button>
+    <button onclick="resetForm()">Reset</button> -->
+
+        <!-- <h3>Filter</h3>
+    <select id="filter" onchange="renderTasks()">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+    </select> -->
+
+        <select id="vehicleName">
+            <option value="">Select Vehicle</option>
+            <option value="Ford">Ford</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Audi">Audi</option>
+        </select>
+
+
+        <select id="model">
+            <option value="">Select Model</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Convertible">Convertible</option>
+        </select>
+
+    
+        <select id="taskDetail">
+            <option value="">Select Task</option>
+            <option value="Oil Change">Oil Change</option>
+            <option value="Tire Rotation">Tire Rotation</option>
+            <option value="Brake Inspection">Brake Inspection</option>
+            <option value="Transmission Check">Transmission Check</option>
+        </select>
+
+        <input type="date" id="dueDate">
+
+        <button onclick="saveTask()">Save Task</button>
+        <button onclick="resetForm()">Reset</button>
+
+        <h3>Tasks</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Vehicle Name</th>
+                    <th rowspan="2">Task Description</th>
+                    <th rowspan="2">Due Date</th>
+                    <th rowspan="2">
+                        Status<br>
+                        <select id="filter" onchange="renderTasks()">
+                            <option value="all">All</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </th>
+                    <th colspan="3">Actions</th>
+                </tr>
+                <tr>
+                    <th>Edit</th>
+                    <th>Complete/Uncomplete</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="taskList"></tbody>
+        </table>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
