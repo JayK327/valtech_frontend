@@ -1,0 +1,560 @@
+[
+    {
+      "serial_number": 1,
+      "name": "Toyota Fortuner",
+      "model":"fortuner",
+      "price": 3890000,
+      "discount": 0,
+      "description": "A rugged and premium SUV with advanced off-roading capabilities and luxurious interiors.",
+      "color": "White",
+      "car_img_url": "images/car/Toyota-Fortuner.jpg",
+      "specifications": [
+        {
+          "Transmission": "Automatic",
+          "Engine": "2.8L Diesel",
+          "Fuel_type": "Diesel",
+          "Power": "201 bhp",
+          "Mileage": "14 kmpl",
+          "Airbags": "7",
+          "NCAP_safety_ratings": "5 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 4500,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Floor mat",
+          "price": 1800,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Speaker",
+          "price": 9500,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        },
+        {
+          "name": "Steering Cover",
+          "price": 700,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        },
+        {
+          "name": "Sunshade",
+          "price": 1000,
+          "accessories_img_url": "images/accessories/sunshade.jpeg"
+        },
+        {
+          "name": "Armrest",
+          "price": 2500,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        },
+        {
+          "name": "Parcel tray",
+          "price": 1300,
+          "accessories_img_url": "images/accessories/parcel_tray.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 4800,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 2,
+      "name": "Honda City",
+      "model":"honda",
+      "price": 1270000,
+      "discount": 10,
+      "description": "A stylish sedan offering comfort and advanced driving features.",
+      "color": "Red",
+      "car_img_url": "images/car/Honda_city.jpg",
+      "specifications": [
+        {
+          "Transmission": "Manual",
+          "Engine": "1.5L Petrol",
+          "Fuel_type": "Petrol",
+          "Power": "121 PS",
+          "Mileage": "17.8 kmpl",
+          "Airbags": "6",
+          "NCAP_safety_ratings": "5 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 3000,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Floor mat",
+          "price": 1000,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Alloy",
+          "price": 15000,
+          "accessories_img_url": "images/accessories/alloy.jpg"
+        },
+        {
+          "name": "Infotainment",
+          "price": 22000,
+          "accessories_img_url": "images/accessories/infotainment.jpg"
+        },
+        {
+          "name": "Speaker",
+          "price": 7000,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        },
+        {
+          "name": "Steering Cover",
+          "price": 500,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        }
+      ]
+    },
+    {
+      "serial_number": 3,
+      "name": "Kia Seltos",
+      "model":"kia",
+      "price": 1850000,
+      "discount": 13,
+      "description": "A feature-rich compact SUV with a sporty design.",
+      "color": "Blue",
+      "car_img_url": "images/car/Kia_seltos.jpg",
+      "specifications": [
+        {
+          "Transmission": "CVT",
+          "Engine": "1.4L Turbo Petrol",
+          "Fuel_type": "Petrol",
+          "Power": "138 bhp",
+          "Mileage": "16.5 kmpl",
+          "Airbags": "6",
+          "NCAP_safety_ratings": "4 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 3200,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Steering Cover",
+          "price": 550,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        },
+        {
+          "name": "Sunshade",
+          "price": 950,
+          "accessories_img_url": "images/accessories/sunshade.jpeg"
+        },
+        {
+          "name": "Armrest",
+          "price": 2100,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        },
+        {
+          "name": "Parcel tray",
+          "price": 1100,
+          "accessories_img_url": "images/accessories/parcel_tray.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 4300,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 4,
+      "name": "Hyundai Creta",
+      "model":"creta",
+      "price": 1750000,
+      "discount": 0,
+      "description": "One of the best-selling compact SUVs with a bold design and great features.",
+      "color": "Black",
+      "car_img_url": "images/car/Hyundai_creta.jpg",
+      "specifications": [
+        {
+          "Transmission": "Automatic",
+          "Engine": "1.5L CRDi",
+          "Fuel_type": "Diesel",
+          "Power": "115 bhp",
+          "Mileage": "20.5 kmpl",
+          "Airbags": "6",
+          "NCAP_safety_ratings": "3 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Sunshade",
+          "price": 1100,
+          "accessories_img_url": "images/accessories/sunshade.jpeg"
+        },
+        {
+          "name": "Armrest",
+          "price": 2300,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        },
+        {
+          "name": "Parcel tray",
+          "price": 1250,
+          "accessories_img_url": "images/accessories/parcel_tray.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 4100,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 5,
+      "name": "Mahindra Thar",
+      "model":"thar",
+      "price": 1680000,
+      "discount": 15,
+      "description": "Iconic off-roader with a cult following and rugged capabilities.",
+      "color": "Red Rage",
+      "car_img_url": "images/car/Mahindra_thar.jpg",
+      "specifications": [
+        {
+          "Transmission": "Manual",
+          "Engine": "2.0L mStallion Turbo",
+          "Fuel_type": "Petrol",
+          "Power": "150 bhp",
+          "Mileage": "15 kmpl",
+          "Airbags": "4",
+          "NCAP_safety_ratings": "4 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 4000,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Floor mat",
+          "price": 1600,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Alloy",
+          "price": 19000,
+          "accessories_img_url": "images/accessories/alloy.jpg"
+        },
+        {
+          "name": "Infotainment",
+          "price": 26000,
+          "accessories_img_url": "images/accessories/infotainment.jpg"
+        },
+        {
+          "name": "Speaker",
+          "price": 8700,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        },
+        {
+          "name": "Steering Cover",
+          "price": 680,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        },
+        {
+          "name": "Sunshade",
+          "price": 1000,
+          "accessories_img_url": "images/accessories/sunshade.jpeg"
+        },
+        {
+          "name": "Armrest",
+          "price": 2400,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        },
+        {
+          "name": "Parcel tray",
+          "price": 1300,
+          "accessories_img_url": "images/accessories/parcel_tray.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 4700,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 6,
+      "name": "Maruti Brezza",
+      "model":"brezza",
+      "price": 1140000,
+      "discount": 8,
+      "description": "A compact SUV with great mileage and modern features.",
+      "color": "Magma Grey",
+      "car_img_url": "images/car/Maruti_brezza.jpg",
+      "specifications": [
+        {
+          "Transmission": "Manual",
+          "Engine": "1.5L Petrol",
+          "Fuel_type": "Petrol",
+          "Power": "103 bhp",
+          "Mileage": "19.2 kmpl",
+          "Airbags": "2",
+          "NCAP_safety_ratings": "4 Star"
+        }
+      ],
+      "accessories": [
+      
+        {
+          "name": "Floor mat",
+          "price": 900,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Alloy",
+          "price": 14500,
+          "accessories_img_url": "images/accessories/alloy.jpg"
+        },
+       
+        {
+          "name": "Speaker",
+          "price": 6000,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        },
+        {
+          "name": "Steering Cover",
+          "price": 450,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        },
+       
+        {
+          "name": "Armrest",
+          "price": 1800,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        }
+      ]
+    },
+    {
+      "serial_number": 7,
+      "name": "TATA Nexon",
+      "model":"nexon",
+      "price": 1300000,
+      "discount": 0,
+      "description": "India’s safest compact SUV with a bold design and EV options.",
+      "color": "Daytona Grey",
+      "car_img_url": "images/car/tata_nexon.jpg",
+      "specifications": [
+        {
+          "Transmission": "AMT",
+          "Engine": "1.2L Turbo Petrol",
+          "Fuel_type": "Petrol",
+          "Power": "120 bhp",
+          "Mileage": "17.4 kmpl",
+          "Airbags": "6",
+          "NCAP_safety_ratings": "5 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 3100,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Floor mat",
+          "price": 1150,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Alloy",
+          "price": 16000,
+          "accessories_img_url": "images/accessories/alloy.jpg"
+        },
+        {
+          "name": "Infotainment",
+          "price": 22500,
+          "accessories_img_url": "images/accessories/infotainment.jpg"
+        },
+        {
+          "name": "Speaker",
+          "price": 7300,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        },
+        {
+          "name": "Steering Cover",
+          "price": 520,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        },
+        {
+          "name": "Sunshade",
+          "price": 900,
+          "accessories_img_url": "images/accessories/sunshade.jpeg"
+        },
+        {
+          "name": "Armrest",
+          "price": 1900,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        },
+        {
+          "name": "Parcel tray",
+          "price": 980,
+          "accessories_img_url": "images/accessories/parcel_tray.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 4200,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 8,
+      "name": "BMW X1",
+      "model":"bmw",
+      "price": 4600000,
+      "discount": 9,
+      "description": "A luxury SUV with top-notch performance and a tech-rich cabin.",
+      "color": "Alpine White",
+      "car_img_url": "images/car/bmw_x1.jpg",
+      "specifications": [
+        {
+          "Transmission": "Automatic",
+          "Engine": "2.0L TwinPower Turbo",
+          "Fuel_type": "Petrol",
+          "Power": "192 bhp",
+          "Mileage": "14.8 kmpl",
+          "Airbags": "8",
+          "NCAP_safety_ratings": "5 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 6000,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Floor mat",
+          "price": 3000,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Alloy",
+          "price": 35000,
+          "accessories_img_url": "images/accessories/alloy.jpg"
+        },
+        {
+          "name": "Infotainment",
+          "price": 50000,
+          "accessories_img_url": "images/accessories/infotainment.jpg"
+        },
+        {
+          "name": "Speaker",
+          "price": 20000,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 8000,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 9,
+      "name": "Audi Q3",
+      "model":"audi",
+      "price": 4700000,
+      "discount": 0,
+      "description": "A stylish premium SUV offering a blend of performance and technology.",
+      "color": "Pulse Orange",
+      "car_img_url": "images/car/audi_q3.jpg",
+      "specifications": [
+        {
+          "Transmission": "Automatic",
+          "Engine": "2.0L TFSI",
+          "Fuel_type": "Petrol",
+          "Power": "190 bhp",
+          "Mileage": "14.93 kmpl",
+          "Airbags": "6",
+          "NCAP_safety_ratings": "5 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Steering Cover",
+          "price": 950,
+          "accessories_img_url": "images/accessories/steering_cover.jpeg"
+        },
+        {
+          "name": "Sunshade",
+          "price": 1400,
+          "accessories_img_url": "images/accessories/sunshade.jpeg"
+        },
+        {
+          "name": "Armrest",
+          "price": 2800,
+          "accessories_img_url": "images/accessories/armrest.jpeg"
+        },
+        {
+          "name": "Parcel tray",
+          "price": 1800,
+          "accessories_img_url": "images/accessories/parcel_tray.jpeg"
+        },
+        {
+          "name": "Chrome Accessories",
+          "price": 7500,
+          "accessories_img_url": "images/accessories/Chrome_accessories.jpg"
+        }
+      ]
+    },
+    {
+      "serial_number": 10,
+      "name": "Volkswagen Virtus",
+      "model":"virtus",
+      "price": 1580000,
+      "discount": 6,
+      "description": "A premium mid-size sedan with German engineering and design.",
+      "color": "Carbon Steel Grey",
+      "car_img_url": "images/car/volkswagen_virtus.jpg",
+      "specifications": [
+        {
+          "Transmission": "Automatic",
+          "Engine": "1.0L TSI",
+          "Fuel_type": "Petrol",
+          "Power": "115 bhp",
+          "Mileage": "18.12 kmpl",
+          "Airbags": "6",
+          "NCAP_safety_ratings": "5 Star"
+        }
+      ],
+      "accessories": [
+        {
+          "name": "Seat Cover",
+          "price": 3400,
+          "accessories_img_url": "images/accessories/seat_cover.jpeg"
+        },
+        {
+          "name": "Floor mat",
+          "price": 1300,
+          "accessories_img_url": "images/accessories/floor_mat.jpeg"
+        },
+        {
+          "name": "Alloy",
+          "price": 15500,
+          "accessories_img_url": "images/accessories/alloy.jpg"
+        },
+        {
+          "name": "Infotainment",
+          "price": 23000,
+          "accessories_img_url": "images/accessories/infotainment.jpg"
+        },
+        {
+          "name": "Speaker",
+          "price": 7500,
+          "accessories_img_url": "images/accessories/speakers.jpeg"
+        }
+      ]
+    }
+  ]

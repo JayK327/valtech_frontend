@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compare Cars</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="inheader">
+      <div class="left-header">
+        <h2>Auto Showroom</h2>
+        <button class="back-btn" onclick="history.back()">← Back</button>
+      </div>
+  
+      <h1 id="car-comparison">Car Comparison</h1>
+  
+      <div class="profile">
+        <img src="./images/car/profile.png" alt="Profile" />
+        <div class="menu">
+          <h3>User A</h3>
+            <hr />
+            <p>📞 +91 9348223344</p>
+            <p>📨 userA123@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="currentCarContainer">
+  
+  <div class="dropdowns">
+    <p><strong>Comparing with:</strong> <span id="currentCarName">Loading...</span></p>
+    <label for="compareSelect">Select another car to compare:</label>
+    <select id="compareSelect"></select>
+  </div>
+
+  <div id="comparisonContainer"></div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

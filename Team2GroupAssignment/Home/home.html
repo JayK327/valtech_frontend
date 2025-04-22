@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      @font-face {
+        font-family: "team";
+        src: local("Corporate A Light"),
+          url("fonts/Corporate\ A\ Light.ttf") format("truetype");
+      }
+
+      body {
+        font-family: "team";
+      }
+
+      .header {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        height: 100px;
+        font-size: 20px;
+      }
+
+      .inheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .center-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 30px;
+        font-weight: bold;
+        border: 1px solid white;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+      .profile {
+        position: relative;
+      }
+
+      .profile .menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        width: 200px;
+        background-color: rgba(255, 255, 255);
+        color: black;
+        font-size: small;
+        text-align: center;
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 1;
+      }
+
+      .profile:hover .menu {
+        display: block;
+      }
+
+      .profile img {
+        border-radius: 50%;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .cars {
+        display: flex;
+        justify-content: center;
+        background-color: #e6e6e9;
+        height: 900px;
+        margin-top: 20px;
+      }
+
+      .list {
+        overflow: auto;
+      }
+
+      .car1 img:nth-of-type(1) {
+        width: 430px;
+        height: 300px;
+        border-radius: 20px 20px 0px 0px;
+      }
+
+      .car1 {
+        margin-top: 20px;
+        background-color: black;
+        text-align: center;
+        position: relative;
+        border-radius: 20px;
+        color: white;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      a:hover {
+        color: green;
+      }
+      a:active {
+        color: red;
+      }
+
+      .car1 img:nth-of-type(2) {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        border-radius: 100%;
+        padding: 8px;
+        background-color: beige;
+        margin: 10px 0px 0px -45px;
+      }
+
+      .list {
+        display: grid;
+        grid-template-columns: 430px 430px 430px;
+        gap: 15px;
+      }
+
+      .car1:hover {
+        color: white;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+      }
+
+      .car1 .accessories {
+        border-radius: 2%;
+        visibility: hidden;
+        background-color: rgb(26, 25, 25);
+        color: white;
+        width: 430px;
+        position: absolute;
+        z-index: 1;
+        margin-top: 0px;
+      }
+
+      .car1:hover .accessories {
+        visibility: visible;
+      }
+      table {
+        display: flex;
+        border: 1px solid white;
+        justify-content: center;
+        padding: 10px;
+      }
+      .space {
+        padding-left: 10px;
+      }
+    </style>
+    <script>
+      function toggleHeart(img) {
+        var out = "nofill.png";
+        var fill = "filled.png";
+        const status = img.src.includes(out) === false;
+        img.src = status ? out : fill;
+        var carlist = img.getAttribute("data-car");
+        localStorage.setItem(carlist, img.src);
+        var favContainer = document.querySelector(".favcars");
+        if (!status) {
+          if (!favContainer.innerHTML.includes(`<p>${carlist}</p>`)) {
+            favContainer.innerHTML += `
+             <p>${carlist}</p>
+             `;
+          }
+        } else {
+          var favItems = favContainer.querySelectorAll("p");
+          favItems.forEach((p) => {
+            if (p.textContent === carlist) {
+              p.remove();
+            }
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", init);
+
+      function init() {
+        fetch("data/data.json")
+          .then((res) => res.json())
+          .then((data) => {
+            data.forEach((val) => {
+              document.querySelector(".list").innerHTML += `
+           <div class="car1">
+            <img src="${val.car_img_url}"/> 
+            <img class="heartIcon" data-car="${val.name}" onclick="toggleHeart(this)" src="./nofill.png"></img>
+           <a href="../Specifications/specification.html?car=${val.serial_number}"><h3>${val.name} ⤴</h3></a>
+            <div class="accessories">
+            <h4>Specification</h4>
+            <hr>
+            <table>
+              <tr>
+                <td>Transmission </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].Transmission}</td>
+              </tr>
+              <tr>
+                <td>Engine </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].Engine}</td>
+              </tr>
+              <tr>
+                <td>Fuel Type </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].Fuel_type}</td>
+              </tr>
+              <tr>
+                <td>Power </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].Power}</td>
+            </tr>
+            <tr>
+                <td>Mileage </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].Mileage}</td>
+            </tr>
+            <tr>
+                <td>Airbags </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].Airbags}</td>
+            </tr>
+            <tr>
+                <td>NCAP Safety Ratings </td>
+                <td class ="space" ></td>
+                <td>:</td>
+                <td class ="space" ></td>
+                <td>${val.specifications[0].NCAP_safety_ratings}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+          `;
+            });
+            var heartIcons = document.querySelectorAll(".heartIcon");
+
+            heartIcons.forEach((icon) => {
+              var carKey = icon.getAttribute("data-car");
+              var saved = localStorage.getItem(carKey);
+              if (
+                saved &&
+                saved ==
+                  "http://127.0.0.1:5500/Team2GroupAssignment%203/Home/filled.png"
+              ) {
+                icon.src = saved;
+                document.querySelector(".favcars").innerHTML += `
+            <p>${carKey}</p>
+            `;
+              }
+            });
+          })
+          .catch((err) => console.log(err));
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="inheader">
+        <h2>Auto Showroom</h2>
+        <div class="center-title">Home</div>
+        <div class="profile">
+          <img src="./profile.png" />
+          <div class="menu">
+            <h3>User A</h3>
+            <hr />
+            <p>📞 +91 9348223344</p>
+            <p>📨 userA123@gmail.com</p>
+            <div class="favcars">
+              <h3 style="margin-top: 10px">Favorite Cars</h3>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cars">
+      <div class="list">
+        <!-- <div class="car1">
+        <img src="./images/car/audi_q3.jpg" alt="audi Q3" />
+        <img id="heartIcon" data-car="audi" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car1</h3>
+        <div class="accessories">
+          <h4>Accessories</h4>
+          <table>
+            <tr>
+              <td>Accessories 1</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 2</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 3</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 4</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="car1">
+        <img src="./images/car/bmw_x1.jpg" alt="bmw" />
+        <img id="heartIcon" data-car="bmw" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car2</h3>
+        <div class="accessories">
+          <h4>Accessories</h4>
+          <table>
+            <tr>
+              <td>Accessories 1</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 2</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 3</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 4</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="car1">
+        <img src="./images/car/Honda_city.jpg" alt="Honda city" />
+        <img id="heartIcon" data-car="honda" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car3</h3>
+        <div class="accessories">
+          <h4>Accessories</h4>
+          <table>
+            <tr>
+              <td>Accessories 1</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 2</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 3</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 4</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="car1">
+        <img src="./images/car/Hyundai_creta.jpg" alt="creta" />
+        <img id="heartIcon" data-car="creta" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car4</h3>
+      </div>
+      <div class="car1">
+        <img src="./images/car/Kia_seltos.jpg" alt="kia seltos" />
+        <img id="heartIcon" data-car="kia" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car5</h3>
+      </div>
+      <div class="car1">
+        <img src="./images/car/Mahindra_thar.jpg" alt="mthar" />
+        <img id="heartIcon" data-car="thar" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car6</h3>
+        <div class="accessories">
+          <h4>Accessories</h4>
+          <table>
+            <tr>
+              <td>Accessories 1</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 2</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 3</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 4</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="car1">
+        <img src="./images/car/Maruti_brezza.jpg" alt="brezza" />
+        <img id="heartIcon" data-car="brezza" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car7</h3>
+      </div>
+      <div class="car1">
+        <img src="./images/car/tata_nexon.jpg" alt="nexon" />
+        <img id="heartIcon" data-car="nexon" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car8</h3>
+        <div class="accessories">
+          <h4>Accessories</h4>
+          <table>
+            <tr>
+              <td>Accessories 1</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 2</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 3</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Accessories 4</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="car1">
+        <img src="./images/car/Toyota-Fortuner.jpg" alt="fortuner" />
+        <img id="heartIcon" data-car="fortuner" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car9</h3>
+      </div>
+      <div class="car1">
+        <img src="./images/car/volkswagen_virtus.jpg" alt="virtus" />
+        <img id="heartIcon" data-car="virtus" onclick="toggleHeart(this)" src="./nofill.png"></img>
+        <h3>Car10</h3>
+      </div> -->
+      </div>
+    </div>
+  </body>
+</html>

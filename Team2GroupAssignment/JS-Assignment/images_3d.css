@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "team";
+}
+
+@font-face {
+  font-family: "team";
+  src: local("Corporate A Light"), url("./Corporate\ A\ Light.ttf") format("truetype");
+}
+
+.header {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.inheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left-header {
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: flex-start;  
+  gap: 10px;  
+}
+
+
+.profile {
+  position: relative;
+}
+
+.profile .menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 200px;
+  background-color: rgba(255, 255, 255);
+  color: black;
+  font-size: small;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.profile:hover .menu {
+  display: block;
+}
+.header img {
+    width: 50px;
+    height: 50px;
+  }
+
+.profile img {
+
+  border-radius: 50%;
+}
+
+.center-header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid white;
+  padding:10px;
+  border-radius: 10px;
+  
+}
+
+
+.back-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+#viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px; 
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(253, 119, 119, 0.15);
+}
+
+#viewer img {
+  width: 700px; 
+  height: 450px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+sup {
+  font-size: 0.6em;
+}
+
+#viewer img:hover {
+  transform: scale(1.2); 
+}
+
+.car-name {
+  margin-top: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  font-family: team;
+  color: #333333;
+}
+
+#viewer p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555555;
+}

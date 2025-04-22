@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Car 360 Viewer</title>
+    
+    <link rel="stylesheet" href="images_3d.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="inheader">
+          <div class="left-header">
+              <h2>Auto Showroom</h2> 
+              <button class="back-btn" onclick="history.back()">← Back</button> 
+          </div>
+  
+          <div class="center-header">
+              <h1 id="car-comparison">Car 360</h1> 
+          </div>
+  
+          <div class="profile">
+              <img src="./profile.png" alt="Profile" />
+              <div class="menu">
+                <h3>User A</h3>
+                <hr />
+                <p>📞 +91 9348223344</p>
+                <p>📨 userA123@gmail.com</p>
+              </div>
+          </div>
+      </div>
+  </div>
+    
+    <div id="viewer">
+      <img id="car" src="./Images_3D/1.jpg" alt="Car 360" />
+      <div class="car-name" id="car-name">Creta</div>
+      <p>Click on the car to rotate it.</p>
+    </div>
+
+    <script src="images_3d.js"></script>
+  </body>
+</html>

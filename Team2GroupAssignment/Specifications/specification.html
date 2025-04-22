@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function addForToggle(){
+            const accordionHeaders = document.querySelectorAll(".accordion-header");
+            const accordionContents = document.querySelectorAll(".accordion-content");
+            accordionContents.forEach(a=> a.classList.add("active"))
+
+        }
+
+        function getCarData(){
+            fetch("data.json").then((res)=>res.json()).then((data)=>{
+              const params = new URLSearchParams(window.location.search);
+              console.log(params)
+              const carId=parseInt(params.get('car'));
+              console.log("Car Id"+carId)
+                let carData=data[carId-1]; //replace with carId-1
+                const specifications=carData["specifications"]
+                const accessories=carData["accessories"]
+                console.log(carData["name"])
+                var hElement=document.getElementsByClassName("carname")[0].textContent
+                const accessoryElement=document.getElementsByClassName("accessories")[0]
+                console.log(hElement)
+                document.getElementsByClassName("carname")[0].textContent=carData["name"];
+                document.getElementById("price").textContent= "₹ "+carData["price"]+"*";
+                document.getElementsByClassName("descrtext")[0].textContent=carData["description"]
+                document.getElementsByClassName("carcontainer")[0].getElementsByTagName("img")[0].setAttribute("src",carData["car_img_url"])
+                let accordian_content=Array.from(document.getElementsByClassName("accordion-content"))
+                console.log(accordian_content)
+                let specific_array=Object.entries(specifications[0])
+                specific_array.forEach((ele,index,arr)=>{
+                  accordian_content[index].textContent=ele[1]
+                })
+                for(item of specifications){ 
+                  console.log(item)
+                }
+                accessories.forEach(ele=>{
+                    accessoryElement.innerHTML+= ` <div class="access1">
+                      <img class="accimg" src="${ele["accessories_img_url"]}" alt="alloy" width="100px" />
+                      <h3 class="name">${ele["name"]}</h3>
+                      <span class="price">${ele["price"]}</span>
+                      <div class="additems">
+                              <label for="${ele["name"]}">Select Item</label>
+                              <input name="${ele["name"]} " type="checkbox"/>
+                        </div>
+                `
+                })
+            })
+        }
+
+        function goToBillingPage(){
+            const params=(window.location.origin)
+            const search = new URLSearchParams(window.location.search);
+            const carId=parseInt(search.get('car'));
+            const url=params+"/Pricing/billingPage.html?car="+carId;
+            const checked=Array.from(document.getElementsByClassName("access1"));
+            const checkedItems={}
+            checked.forEach(check=>{
+              const checkBox=check.getElementsByTagName("input")[0]
+              const name=check.getElementsByTagName("h3")[0].textContent
+              const price= parseInt(check.getElementsByTagName("span")[0].textContent);
+              console.log(name)
+              console.log(price)
+              console.log(item)
+              if(checkBox.checked===true){
+                  checkedItems[name]=price
+              }  
+
+            })
+            localStorage.setItem("accessories",JSON.stringify(checkedItems))
+            console.log(checkedItems)
+            window.location.href=url;
+        }
+
+        function addAccessories(event){
+          console.log(event.target.name)
+          console.log(event.target.name)
+          console.log(event.target.checked)
+          if(event.target.checked){
+            console.log("Checked")
+          }
+        }
+
+        function viewAnotherPage(){
+          const params = new URLSearchParams(window.location.search);
+          console.log(params)
+          const carId=parseInt(params.get('car'));
+          const host=(window.location.origin)
+          const url=host+"/JS-Compare/compare.html?car="+carId;
+          window.location.href=url;
+        }
+
+        document.addEventListener("DOMContentLoaded",function (){
+            addForToggle()
+            document.getElementsByClassName("billing")[0].addEventListener("click",goToBillingPage)
+            getCarData() //
+        })
+
+       function view360Page(){
+        const params=window.location.origin;
+        const url=params+"/JS-Assignment/images_3d.html"
+        window.location.href=url
+
+       }
+
+
+
+    </script>
+    <style>
+
+
+        *{
+            margin: 0px;
+            box-sizing: border-box;
+            padding: 0px;
+        }
+        body {
+        font-family: "team";
+      }
+
+        label{
+            display: block;
+            margin: 0 0 6px 0;
+            padding: 15px 20px 15px 15px;
+            line-height: 1;
+            cursor: pointer;
+            background: #232d40;
+            border-radius: 5px;
+
+        }
+        
+        @font-face {
+        font-family: "team";
+        src: local("Corporate A Light"),
+          url("./Corporate\ A\ Light.ttf") format("truetype");
+      }
+
+        .carcontainer{
+            width: 100%;
+            height: 470px;
+            display: flex;
+            background-color: #f2e5d7;
+            border: 1px solid white;
+            /* flex-wrap: wrap; */
+            row-gap: 0px;
+            background-color: white
+        
+        }
+
+        p{
+            margin-bottom: 50px;
+        }
+
+       .carcontainer img{
+            margin-top: 30px;
+            width: 750px;
+            height: 400px;
+            display: block;
+            margin: 25px;
+            border-radius:5%;
+            border: 1px solid black;
+        }
+
+        .carname{
+            text-align: center;
+            border: 1px solid black;
+            font-size: 30px;
+            background-color: black;
+            color: white;
+        }
+
+        .infodiv{
+            margin:30px 20px;
+            height: 400px;
+            width: 1028px;
+            flex-basis: 400px 1028px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .inheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.profile .menu p {
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.5; 
+}
+
+.left-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 20px;
+  gap: 1px; 
+  padding: 10px;
+  margin: 5px;
+}
+
+.center-header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header {
+  background-color: black; 
+  color: white;
+  padding: 5px;
+}
+.back-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.back-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+#car-comparison {
+  text-align: center;
+  color: #fff;
+  padding: 10px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  margin: 0;
+}
+
+  .profile {
+    position: relative;
+  }
+
+  .profile .menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    background-color: rgba(255, 255, 255);;
+    color: black;
+    font-size: small;
+    text-align: center;
+    padding: 1px;
+    border-radius: 8px;
+    z-index: 1;
+  }
+
+  .profile:hover .menu {
+    display:block;
+  }
+
+  .profile img {
+    border-radius: 50%;
+  }
+
+  .header img {
+    width: 50px;
+    height: 50px;
+  }
+
+
+        #price{
+            color: black;
+            font-size: 30px;
+        }
+
+
+        .view360{
+            margin-top: 0px;
+            height: 40px;
+            width: 100px;
+            margin: 0px 0px;
+            border-radius: 10px;
+            background-color:#0078d6;
+            display: flex;
+            column-gap: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .descr{
+            margin-top: 20px;
+            font-size: 30px;
+        }
+        .descr p{
+
+            font-size: 20px;
+        }
+
+        .descrtext{
+            margin-top: 10px;
+            font-size: 20px;
+            
+        }
+
+        .comparediv{
+            height: 250px;
+            width: 250px;
+            margin-top: 30px;
+            border: 1px solid black;
+        }
+
+        #selmenu{
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 30px;
+            margin-left: 10px;
+        }
+
+        .comparediv h2{
+            font-size: 30px;
+        }
+
+        .threeicon{
+            width: 5px;
+            height: 5px;
+            background: url("./360viewicon.png");
+            display: inline-block
+        }
+
+        .comparebtn{
+            border-radius: 10px;
+            width: 150px;
+            height: 25px;
+            background-color: aquamarine;
+            margin-left: 10px;
+        }
+
+        .buttons{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .insidebuttons{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buttondiv{
+          margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+
+        .accordion {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 70px;
+            margin-right: 70px;
+}
+
+.accordion h1{
+    border: 1px solid grey;
+    width: 100%;
+    text-align: center;
+    background-color:black ;
+    color: white;
+
+}
+
+.accordion-header:hover{
+    background-color: #f4f4f4;
+}
+
+.accordion-item {
+  margin-bottom: 5px;
+  width: 1550px;
+  text-align: start;
+
+}
+
+.accordion-header {
+  background-color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  border-bottom: 1px solid grey;
+}
+
+.accordion-content {
+  /* display: block; */
+  /* max-height: 1000px; */
+  transition: max-height 0.6s ease;
+  font-size: 25px;
+  padding: 20px;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  color: black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  max-height: 0;
+  display: none;
+  text-align: start;
+}
+
+.accordion-content.active {
+  display: block;
+  max-height: 1000px;
+}
+
+.accessories{
+        /* width: 100%; */
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 10px;
+}
+
+
+
+
+.accessories>h1{
+    text-align: center;
+    display: block;
+}
+
+.accessories div{
+    width: 200px;
+    height: 250px;
+    flex-basis: 0 0 50px;
+}
+
+.accessories {
+  display: flex;
+  margin-top: 20px;
+  column-gap: 30px;
+  flex-wrap: wrap;
+  /* height: 300px; */
+  gap: 40px;
+  /* overflow: hidden; */
+}
+
+.accessories div span{
+  display: block;
+}
+
+.accessoriesheading{
+    text-align: center;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+}
+
+
+
+.accimg{
+
+  width: 200px;
+  height: 200px;
+
+}
+
+label{
+
+  display: inline-block;
+  background-color: white;
+  color: black;
+
+}
+.billingsection{
+  margin-left: 70px;
+  margin-right: 70px;
+  padding: 10px;
+  border: 1px solid grey;
+  height: 650px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: auto;
+}
+.billingdiv{
+
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 15px;
+  margin-right: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.billingdiv button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color:#0078d6 ;
+    align-self: flex-end;
+
+  }
+
+</style>
+
+</head>
+<body>
+  <div class="header">
+    <div class="inheader">
+      <div class="left-header">
+        <h2>Auto Showroom</h2>
+        <button class="back-btn" onclick="history.back()">← Back</button>
+      </div>
+  
+      <!-- <div class="center-header">
+        <h1 id="car-comparison">Speci</h1>
+      </div> -->
+  
+      <div class="profile">
+        <img src="./profile.png" />
+        <div class="menu">
+          <h3>User A</h3>
+            <hr />
+            <p>📞 +91 9348223344</p>
+            <p>📨 userA123@gmail.com</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+    <div class="carcontainer">
+        <img  src="./image.png" alt="">
+        <div class="infodiv">
+            <h2 class="carname">Swift Dzire</h2>
+            <h4 class="descr">Description</h4>
+            <p class="descrtext">The Mahindra Scorpio N is one of the most popular SUVs in India, known for its bold looks, premium features, and powerful petrol and diesel powertrains. An optional four-wheel-drive (4x4) setup is available for those who prefer to take it offroad. The 2025 Mahindra Scorpio N with model year updates is expected later this year with minor feature additions.</p>
+            <div class="buttons">
+
+                <div class="insidebuttons">
+                    <span id="price">₹50 Lakh - ₹55 Lakh</span>
+                    <div class="buttondiv">
+                    <button class="view360" onclick="view360Page()"><span>360 View</span></button>
+                    <button class="view360" onclick="viewAnotherPage()">Compare</button>
+                </div>
+               
+                </div>
+
+                <div></div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <h1 class="specificationheading">Specifications</h1>
+        <div class="accordion-item">
+          <div class="accordion-header">Transmission</div>
+          <div class="accordion-content">
+            <p>This is the content of section 1.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Engine</div>
+          <div class="accordion-content">
+            <p>This is the content of section 2.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Fuel_Type</div>
+          <div class="accordion-content">
+            <p>This is the content of section 3.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">Power</div>
+            <div class="accordion-content">
+              <p>This is the content of section 3.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">Mileage</div>
+            <div class="accordion-content">
+              <p>This is the content of section 3.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">Airbags</div>
+            <div class="accordion-content">
+              <p>This is the content of section 3.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">NCAP_safety_rating</div>
+            <div class="accordion-content">
+              <p>This is the content of section 3.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+      <h1 class="accessoriesheading">Accessories</h1>
+      <div class="billingsection">
+      <div class="accessories"></div>
+      <div class="billingdiv">
+        <button class="billing">Go To Billing</button>
+      </div>
+      </div>
+     
+</div>
+
+</body>
+</html>
