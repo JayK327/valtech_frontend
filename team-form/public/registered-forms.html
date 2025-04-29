@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registered Forms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/registered-form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    table td,
+    table th {
+      vertical-align: middle;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="admin.html">
+        <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <div class="container mt-5 pt-5">
+    <div class="card shadow p-4">
+      <h3 class="mb-4 text-center">Registered Forms</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Form Title</th>
+            <th>User Email</th>
+            <th>Answers</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="registeredFormsTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal fade" id="answersModal" tabindex="-1" aria-labelledby="answersModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="answersModalLabel">Answers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalAnswersContent">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function loadRegisteredForms() {
+      fetch("/registered-forms")
+        .then(res => res.json())
+        .then(forms => {
+          const tbody = document.getElementById("registeredFormsTableBody");
+          tbody.innerHTML = "";
+
+          if (forms.length === 0) {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="5" class="text-center">No registered forms found.</td>
+              </tr>`;
+            return;
+          }
+
+          forms.forEach((form, i) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${i + 1}</td>
+              <td>
+                <a href="#" onclick="viewAnswers('${form._id}')">
+                  ${form.title || "Untitled"}
+                </a>
+              </td>
+              <td>${form.useremail}</td>
+              <td>${form.answers.length}</td>
+              <td>
+                <button
+                  class="btn btn-sm btn-danger"
+                  onclick="deleteRegisteredForm('${form._id}')">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        });
+    }
+
+    function viewAnswers(id) {
+      fetch(`/registered-forms/${id}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.answers?.length) {
+            alert("No answers found.");
+            return;
+          }
+
+          let answersContent = `<p><strong>Useremail:</strong> ${data.useremail}</p>
+                                <p><strong>Time:</strong> ${new Date(data.submittedAt).toLocaleString()}</p><hr>`;
+          data.answers.forEach((a, idx) => {
+            answersContent += `<p><strong>${idx + 1}. ${a.question}</strong></p>
+                               <p>→ ${a.answer}</p><hr>`;
+          });
+
+          document.getElementById("modalAnswersContent").innerHTML = answersContent;
+
+          const myModal = new bootstrap.Modal(document.getElementById("answersModal"));
+          myModal.show();
+        });
+    }
+
+    function deleteRegisteredForm(id) {
+      if (!confirm("Delete this submission?")) return;
+      fetch(`/registered-forms/${id}`, { method: "DELETE" })
+        .then(res => res.json())
+        .then(j => {
+          alert(j.message);
+          loadRegisteredForms();
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", loadRegisteredForms);
+  </script>
+</body>
+
+</html>

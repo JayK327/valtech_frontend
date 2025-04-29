@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fill Out Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f8f9fa;
+            background-image: url('../images/design1.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            background-color: #1d1f21 !important;
+        }
+
+        .container {
+            max-width: 900px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 120px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-question {
+            margin-bottom: 25px;
+            background-color: rgba(240, 240, 240, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-question:hover {
+            background-color: rgba(230, 230, 230, 1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.1rem;
+            color: rgb(106, 104, 104);
+            ;
+        }
+
+        .radio,
+        .checkbox {
+            display: flex;
+        }
+
+        label:nth-child(1) {
+            color: black;
+            font-size: 1.1 rem;
+        }
+
+        input,
+        textarea,
+        select {
+            background: rgba(255, 255, 255, 0.8) !important;
+            color: #333 !important;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: #142032;
+            border-color: #10161f;
+            color: #e9ecef;
+            padding: 10px 30px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            margin: auto;
+        }
+
+        .btn-primary:hover {
+            background-color: #e9ecef;
+            border-color: #0b111a;
+            color: #142032;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: #111517;
+            color: white;
+            border: 1px solid #f7fafd;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            border: 1px solid #6c757d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-danger {
+            border-radius: 6px;
+            background-color: #f44336;
+            border-color: #f44336;
+        }
+
+        .btn-danger:hover {
+            background-color: #d32f2f;
+            border-color: #d32f2f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .table {
+            margin-bottom: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: none;
+        }
+
+        .table thead th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: 600;
+            border: none;
+            padding: 12px 15px;
+            border-bottom: 2px solid #e9ecef;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .table tbody td {
+            padding: 12px 15px;
+            border: none;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: middle;
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(13, 71, 161, 0.05);
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        h2#formTitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 2rem;
+            color: black;
+            text-shadow: 1px 1px 5px #656667;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function goBack() {
+                window.history.back();
+            }
+
+            window.goBack = goBack;
+
+            const formId = new URLSearchParams(window.location.search).get("id");
+            const userId = localStorage.getItem("userId");
+            let userEmail = "";
+
+            if (!formId || !userId) {
+                alert("Missing form ID or user ID");
+                window.location.href = "user.html";
+            }
+
+            fetch(`/user?id=${userId}`)
+                .then(res => res.json())
+                .then(user => { userEmail = user.email; })
+                .catch(err => {
+                    console.error("User fetch error:", err);
+                    alert("Unable to load user");
+                });
+
+            fetch(`/forms/${formId}`)
+                .then(res => res.json())
+                .then(form => {
+                    document.getElementById("formTitle").textContent = form.title;
+                    document.getElementById("navbarTitle").innerHTML = `Fill the ${form.title} Form`;
+
+                    const formFieldsDiv = document.getElementById("formFields");
+
+                    form.fields.forEach((field, index) => {
+                        const fieldWrapper = document.createElement("div");
+                        fieldWrapper.className = "form-question";
+
+                        const label = document.createElement("label");
+                        label.textContent = "Q" + (index + 1) + ". " + field.question;
+                        label.setAttribute("for", `field-${index}`);
+                        fieldWrapper.appendChild(label);
+
+                        if (["text", "email", "date", "phone"].includes(field.type)) {
+                            const input = document.createElement("input");
+                            input.type = field.type;
+                            input.className = "form-control";
+                            input.id = `field-${index}`;
+                            input.name = field.question;
+
+                            if (field.type === "date") {
+                                const today = new Date().toISOString().split('T')[0];
+                                input.setAttribute("min", today);
+                            }
+
+                            fieldWrapper.appendChild(input);
+                        } else if (field.type === "textarea") {
+                            const textarea = document.createElement("textarea");
+                            textarea.className = "form-control";
+                            textarea.id = `field-${index}`;
+                            textarea.name = field.question;
+                            fieldWrapper.appendChild(textarea);
+                        } else if (["radio", "checkbox"].includes(field.type)) {
+                            field.options.forEach((option, optIndex) => {
+                                const optDiv = document.createElement("div");
+                                optDiv.className = field.type;
+
+                                const input = document.createElement("input");
+                                input.type = field.type;
+                                input.id = `field-${index}-opt-${optIndex}`;
+                                input.name = field.question;
+                                input.value = option;
+
+                                const optLabel = document.createElement("label");
+                                optLabel.htmlFor = input.id;
+                                optLabel.textContent = " " + option;
+
+                                optDiv.appendChild(input);
+                                optDiv.appendChild(optLabel);
+                                fieldWrapper.appendChild(optDiv);
+                            });
+                        } else if (field.type === "dropdown") {
+                            const select = document.createElement("select");
+                            select.className = "form-select";
+                            select.name = field.question;
+                            select.id = `field-${index}`;
+                            field.options.forEach(option => {
+                                const opt = document.createElement("option");
+                                opt.value = option;
+                                opt.textContent = option;
+                                select.appendChild(opt);
+                            });
+                            fieldWrapper.appendChild(select);
+                        }
+
+                        formFieldsDiv.appendChild(fieldWrapper);
+                    });
+                })
+                .catch(err => {
+                    console.error("Form fetch error:", err);
+                    alert("Unable to load form");
+                });
+
+            document.getElementById("dynamicForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                const answers = [];
+
+                let formValid = true;
+
+                for (let [question, answer] of formData.entries()) {
+                    if (question.includes("date")) {
+                        const today = new Date().toISOString().split('T')[0];
+                        if (answer <= today) {
+                            alert("The selected date must be after today's date.");
+                            formValid = false;
+                            break;
+                        }
+                    }
+
+                    const existing = answers.find(a => a.question === question);
+                    if (existing) {
+                        existing.answer += `, ${answer}`;
+                    } else {
+                        answers.push({ question, answer });
+                    }
+                }
+
+                if (!formValid) return;
+
+                fetch("/submit-form", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        useremail: userEmail,
+                        formid: formId,
+                        answers
+                    })
+                })
+                    .then(res => {
+                        if (!res.ok) throw new Error("Failed to submit form");
+                        return res.json();
+                    })
+                    .then(() => {
+                        alert("Form submitted successfully!");
+                        window.location.href = "user.html";
+                    })
+                    .catch(err => {
+                        console.error("Submit error:", err);
+                        alert("Failed to submit form");
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a id="navbarTitle" class="navbar-brand" href="#">🚗 Loading...</a>
+            <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 id="formTitle">Loading form...</h2>
+        <form id="dynamicForm">
+            <div id="formFields"></div>
+            <div class="d-flex justify-content-between mt-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

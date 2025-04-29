@@ -1,0 +1,53 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #f8f9fa;
+    background-image: url('../images/design1.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.navbar {
+    background-color: #10161f !important;
+}
+ 
+#formTitle {
+  color: #212529;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 34px;
+}
+ 
+#dynamicForm {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+ 
+.form-label {
+  color: #212529;
+  font-weight: 500;
+  font-size: 14px;
+}
+ 
+.form-control:focus,
+.form-select:focus {
+  border-color: #10161f;
+}
+ 
+.btn-custom {
+  background-color: #10161f;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+}
+ 
+.btn-custom:hover {
+  background-color: white;
+  color: #10161f;
+  border: 1px solid #10161f;
+}

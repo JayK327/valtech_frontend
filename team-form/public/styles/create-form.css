@@ -1,0 +1,42 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #f8f9fa;
+    background-image: url('../images/design1.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    
+  }
+  
+  .navbar {
+    background-color: #10161f;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+  }
+  
+  h2 {
+    color: #212529;
+    font-weight: 600;
+  }
+  
+  label {
+    color: #212529;
+    font-weight: 500;
+  }
+  
+  .btn-custom {
+    background-color: #212529;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: white;
+    color: #212529;
+    border: 1px solid #212529;
+  }
+  

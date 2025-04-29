@@ -1,0 +1,69 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #f8f9fa;
+    background-image: url('../images/design1.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.navbar {
+  background-color: #10161f;
+}
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+}
+ 
+h3 {
+  color: #212529;
+  font-weight: 700;
+  text-align: center;
+}
+ 
+.table {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+ 
+.table thead {
+  background-color: #212529;
+  color: #ffffff;
+}
+ 
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+}
+ 
+.table tbody tr:hover {
+  background-color: rgba(33, 37, 41, 0.05);
+}
+ 
+.table a {
+  color: #212529;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s, background-color 0.3s;
+}
+ 
+.table a:hover {
+  background-color: rgba(33, 37, 41, 0.1);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+ 
+.btn-danger {
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+ 
+.btn-danger:hover {
+  background-color: #c82333;
+}
